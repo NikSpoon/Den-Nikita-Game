@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7092083482689011434
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8374426242560673860}
+  - component: {fileID: 5351538439529704663}
+  m_Layer: 0
+  m_Name: UI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8374426242560673860
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7092083482689011434}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 794.14417, y: 669.33966, z: -3.748877}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5351538439529704663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7092083482689011434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e202720bc9407814087e39074c5190bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _root: {fileID: 8374426242560673860}
+  _loaderPanel: {fileID: 3393320448591246452, guid: 5c84657eef240c74b9a5eb42f90f7615, type: 3}
+  _loading: {fileID: 8883155331220717108, guid: c4032c92e8ac7a043bfa47a7507903d9, type: 3}
+  _mainMenu: {fileID: 3284318517885093709, guid: 86a12d5250f325d4392418844dcd9823, type: 3}
+  _game3D: {fileID: 1639065300798762295, guid: 3f69f34b05639a0428cf20dd78dcb716, type: 3}
+  _game2D: {fileID: 8547502403612243685, guid: 3401e4fc8594c4e4c8dd95f677dffc3c, type: 3}
+  _finish: {fileID: 7051853514117542926, guid: a4866cc6caaf7484b98bb2ea5d561ca5, type: 3}
+  _save: {fileID: 7680213169369904059, guid: 21a0e821d9616ea4891e30d60d1a4833, type: 3}
