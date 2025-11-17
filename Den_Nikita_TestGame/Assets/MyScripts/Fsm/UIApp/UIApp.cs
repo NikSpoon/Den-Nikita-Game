@@ -30,6 +30,7 @@ namespace Fsm.UIApp
 
             _stateMashine.AddTransition(AppState.MainMenu, AppTriger.ToGame3D, AppState.Game3D);
 
+            _stateMashine.AddTransition(AppState.Game3D, AppTriger.ToMainMenu, AppState.MainMenu);
             _stateMashine.AddTransition(AppState.Game3D, AppTriger.ToGame2D, AppState.Game2D);
             _stateMashine.AddTransition(AppState.Game3D, AppTriger.ToSave, AppState.Save);
             _stateMashine.AddTransition(AppState.Game3D, AppTriger.ToFinish, AppState.Finish);

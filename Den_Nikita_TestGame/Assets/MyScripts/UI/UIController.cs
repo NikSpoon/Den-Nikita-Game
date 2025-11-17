@@ -47,9 +47,9 @@ public class UIController : MonoBehaviour
 
             case AppState.MainMenu: _currentScreen = Instantiate(ReloadScene("MainMenu",_mainMenu),_root.transform); break;
 
-            case AppState.Game3D: _currentScreen = Instantiate(ReloadScene("Game3D", _game3D), _root.transform); break;
+            case AppState.Game3D: _currentScreen = Instantiate(ReloadScene("Test3DMap", _game3D), _root.transform); break;
 
-            case AppState.Game2D: _currentScreen = Instantiate(ReloadScene("Game2D", _game2D), _root.transform); break;
+            case AppState.Game2D: _currentScreen = Instantiate(ReloadScene("Test2DMap", _game2D), _root.transform); break;
 
             case AppState.Finish: _currentScreen = Instantiate(ReloadScene("Finish", _finish), _root.transform); break;
 

@@ -8,9 +8,39 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 554944119830891132, guid: c6b52c7e95f838546b15505cebf31373, type: 3}
+      propertyPath: m_text
+      value: 'Save
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 554944119830891132, guid: c6b52c7e95f838546b15505cebf31373, type: 3}
+      propertyPath: m_fontSize
+      value: 140
+      objectReference: {fileID: 0}
+    - target: {fileID: 554944119830891132, guid: c6b52c7e95f838546b15505cebf31373, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 140
+      objectReference: {fileID: 0}
     - target: {fileID: 1582038609485668100, guid: c6b52c7e95f838546b15505cebf31373, type: 3}
       propertyPath: m_Name
-      value: UIRoot
+      value: Save
+      objectReference: {fileID: 0}
+    - target: {fileID: 3429163285454076524, guid: c6b52c7e95f838546b15505cebf31373, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1002.8796
+      objectReference: {fileID: 0}
+    - target: {fileID: 3429163285454076524, guid: c6b52c7e95f838546b15505cebf31373, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 480.1141
+      objectReference: {fileID: 0}
+    - target: {fileID: 3429163285454076524, guid: c6b52c7e95f838546b15505cebf31373, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -405
+      objectReference: {fileID: 0}
+    - target: {fileID: 3429163285454076524, guid: c6b52c7e95f838546b15505cebf31373, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 240.06
       objectReference: {fileID: 0}
     - target: {fileID: 5679176016039950943, guid: c6b52c7e95f838546b15505cebf31373, type: 3}
       propertyPath: m_Pivot.x

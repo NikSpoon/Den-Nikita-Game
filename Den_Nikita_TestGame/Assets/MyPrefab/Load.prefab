@@ -8,9 +8,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 554944119830891132, guid: c6b52c7e95f838546b15505cebf31373, type: 3}
+      propertyPath: m_text
+      value: L
+      objectReference: {fileID: 0}
     - target: {fileID: 1582038609485668100, guid: c6b52c7e95f838546b15505cebf31373, type: 3}
       propertyPath: m_Name
-      value: UIRoot
+      value: Load
       objectReference: {fileID: 0}
     - target: {fileID: 5679176016039950943, guid: c6b52c7e95f838546b15505cebf31373, type: 3}
       propertyPath: m_Pivot.x
