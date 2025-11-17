@@ -9,8 +9,8 @@ public class Movements : MonoBehaviour
     [SerializeField] private float _jumpForce;
     [SerializeField] private float _speed;
     [SerializeField] private Rigidbody _rb;
-    [SerializeField] private float _groundCheckDistance = 0.2f; // длина луча вниз
-    [SerializeField] private LayerMask _groundMask; // слой земли
+    [SerializeField] private float _groundCheckDistance = 0.2f;
+    [SerializeField] private LayerMask _groundMask; 
     private void FixedUpdate()
     {
         var nextPosition = _rb.position + Direction * _speed * Time.fixedDeltaTime;
@@ -30,7 +30,6 @@ public class Movements : MonoBehaviour
 
     private bool IsGrounded()
     {
-        // Выпускаем луч вниз из позиции Rigidbody
         return Physics.Raycast(_rb.position, Vector3.down, _groundCheckDistance, _groundMask);
     }
 
