@@ -23,13 +23,11 @@ public class Rotator : MonoBehaviour
 
         if (Physics.Raycast(ray, out RaycastHit hit, 2000f))
         {
-            // »гнорируем попадание в самого себ€
             if (hit.collider == _selfCollider)
                 return;
 
             Vector3 target = hit.point;
 
-            // ѕовернуть только по Y (если надо убрать вертикальный наклон)
             Vector3 direction = (target - transform.position);
             direction.y = 0;
 
