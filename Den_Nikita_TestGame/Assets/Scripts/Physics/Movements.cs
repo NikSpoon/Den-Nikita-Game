@@ -1,6 +1,4 @@
-using JetBrains.Annotations;
 using System.Collections;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Movements : MonoBehaviour
@@ -14,10 +12,7 @@ public class Movements : MonoBehaviour
     private void FixedUpdate()
     {
         var nextPosition = _rb.position + Direction * _speed * Time.fixedDeltaTime;
-
         _rb.MovePosition(nextPosition);
-
-        Debug.DrawLine(_rb.position, _rb.position + Vector3.down * _groundCheckDistance, Color.red);
     }
 
     public void Jump()
