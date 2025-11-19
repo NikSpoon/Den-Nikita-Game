@@ -17,9 +17,9 @@ public class Spawner : MonoBehaviour
             var input = player.GetComponent<InputSystem>();
             
             camera.Target.TrackingTarget = player.transform;
-          //  camera.Target.LookAtTarget = player.transform;
-            camera.Target.LookAtTarget = _cameraTarget.CameraLoocer(input).transform;
-          //   _cameraTarget.CameraLoocer(input);
+            //  camera.Target.LookAtTarget = player.transform;
+            // camera.Target.LookAtTarget = _cameraTarget.CameraLoocer(input).transform;
+              _cameraTarget.CameraLoocer(input);
         }
     }
 }

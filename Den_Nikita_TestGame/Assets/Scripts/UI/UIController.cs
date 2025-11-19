@@ -1,4 +1,5 @@
 using Fsm.UIApp;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -25,16 +26,15 @@ public class UIController : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
+        StartCoroutine(WheitContect());
     
     }
-    private void OnEnable()
+    private void Start()
     {
         _currentScreen = Instantiate(_loading, _root.transform);
-       
+
         var appSystem = Context.Instance.UIApp;
         Context.Instance.UIApp.OnStateChange += OnStateChange;
-            
     }
     private void OnStateChange(StateChangeData<AppState, AppTriger> data)
     {
@@ -69,6 +69,13 @@ public class UIController : MonoBehaviour
         SceneManager.LoadScene(newScene);
         Destroy(load);
         return neme;
+    }
+    private IEnumerator WheitContect()
+    {
+        while (Context.Instance == null)
+        {
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 }
 

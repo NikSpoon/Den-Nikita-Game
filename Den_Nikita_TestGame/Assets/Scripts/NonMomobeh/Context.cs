@@ -5,6 +5,7 @@ public class Context : MonoBehaviour
 {
     public static Context Instance { get; private set; }
 
+    public PlayerProfaile PlayerProfaile = new PlayerProfaile();
     public IAppSystem UIApp = new UIApp();
 
     private void Awake()

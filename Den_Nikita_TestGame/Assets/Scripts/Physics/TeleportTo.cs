@@ -6,16 +6,18 @@ public class TeleportTo : MonoBehaviour
     private void Start()
     {
         _toMainMenuPanel = GameObject.FindGameObjectWithTag("ToMeinMenuTeleport");
-        _toMainMenuPanel.SetActive(false);
+        
+        if (_toMainMenuPanel != null )
+            _toMainMenuPanel.SetActive(false);
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             // Debug.Log("Игрок вошел в триггер!");
             _toMainMenuPanel.SetActive(true);
-          
-          
-        } 
+
+
+        }
     }
 }
