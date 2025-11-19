@@ -1,5 +1,6 @@
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Spawner : MonoBehaviour
 {
@@ -21,5 +22,6 @@ public class Spawner : MonoBehaviour
             // camera.Target.LookAtTarget = _cameraTarget.CameraLoocer(input).transform;
               _cameraTarget.CameraLoocer(input);
         }
+       
     }
 }

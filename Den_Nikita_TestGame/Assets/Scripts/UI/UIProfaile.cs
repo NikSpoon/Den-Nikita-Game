@@ -17,4 +17,5 @@ public class UIProfaile : MonoBehaviour
         _levl.text =  Context.Instance.PlayerProfaile.Lewl.ToString();
         _id.text =  Context.Instance.PlayerProfaile.ID.ToString();
     }
+
 }

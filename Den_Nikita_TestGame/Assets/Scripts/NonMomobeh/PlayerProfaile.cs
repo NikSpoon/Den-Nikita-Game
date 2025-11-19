@@ -13,4 +13,8 @@ public class PlayerProfaile
         ID = 1;
         Lewl = 1;
     }
+    public void GetProff(string name, int id, int lewl)
+    {
+
+    }
 }
