@@ -9,6 +9,8 @@ public class InputSystem : MonoBehaviour
     public Vector3 LockDirection { get; private set; }
     public bool Exit { get; private set; }
     public Vector3 HitInfo { get; private set; }
+   
+    
     private Camera _camera;
     private Collider _myColl;
 

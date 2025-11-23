@@ -7,11 +7,13 @@ public class MainMenuPanel1 : MonoBehaviour
 {
     [SerializeField] private InputSystem _inputSystem;
 
+    [Header("MainPanels")]
     [SerializeField] private GameObject _options;
     [SerializeField] private GameObject _multiplayer;
     [SerializeField] private GameObject _myPlayre;
     [SerializeField] private GameObject _myWord;
     [SerializeField] private GameObject _exitPanel;
+    [Header("MultiplayerPanels")]
     [SerializeField] private GameObject _multiplayerOpenWorld;
     [SerializeField] private GameObject _multiplayerCreateWorld;
     [SerializeField] private GameObject _multiplayerHeroPanel;
@@ -45,6 +47,7 @@ public class MainMenuPanel1 : MonoBehaviour
             _exitPanel.SetActive(true);
         }
     }
+
     public void StatGame()
     {
         Context.Instance.UIApp.Trigger(Fsm.UIApp.AppTriger.ToGame3D);
