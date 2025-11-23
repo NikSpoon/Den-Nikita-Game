@@ -7,7 +7,7 @@ public class InputSystem : MonoBehaviour
     public float HorizontalImput { get; private set; }
     public float VerticalImput { get; private set; }
     public Vector3 LockDirection { get; private set; }
-
+    public bool Exit { get; private set; }
     public Vector3 HitInfo { get; private set; }
     private Camera _camera;
     private Collider _myColl;
@@ -27,18 +27,23 @@ public class InputSystem : MonoBehaviour
         Direction = transform.TransformDirection(locatDir);
         JumpPressed = Input.GetKey(KeyCode.Space);
 
-        Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
-        Physics.Raycast(ray, out RaycastHit hitInfo, 2000f);
-        if (hitInfo.collider == _myColl)
+        if (_camera != null)
         {
-            return;
+            Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+            Physics.Raycast(ray, out RaycastHit hitInfo, 2000f);
+            if (hitInfo.collider == _myColl)
+            {
+                return;
+            }
+            else
+            {
+                HitInfo = hitInfo.point;
+                var direction = hitInfo.point - transform.position;
+                direction.y = 0;
+                LockDirection = direction;
+            }
         }
-        else
-        {
-            HitInfo = hitInfo.point;
-            var direction = hitInfo.point - transform.position;
-            direction.y = 0;
-            LockDirection = direction;
-        }
+
+        Exit = Input.GetKeyDown(KeyCode.Escape);
     }
 }
