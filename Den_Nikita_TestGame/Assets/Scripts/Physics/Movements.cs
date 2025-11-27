@@ -8,7 +8,7 @@ public class Movements : MonoBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private Rigidbody _rb;
     [SerializeField] private float _groundCheckDistance = 0.2f;
-    [SerializeField] private LayerMask _groundMask; 
+    [SerializeField] private LayerMask _groundMask;
     private void FixedUpdate()
     {
         var nextPosition = _rb.position + Direction * _speed * Time.fixedDeltaTime;
@@ -32,6 +32,14 @@ public class Movements : MonoBehaviour
     {
         _rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
         yield return new WaitForSeconds(0.1f);
+    }
+    public void GetRB(Rigidbody rb)
+    {
+        if (_rb == null)
+        {
+            _rb = rb;
+
+        }
     }
 }
 

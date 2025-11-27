@@ -2,6 +2,14 @@
 
 public class Humen : BaseHero
 {
+    [SerializeField] private Rigidbody _rb;
+    protected override Rigidbody HeroRigidbody => _rb;
+
+    private new void Start()
+    {
+        InitRb();
+    }
+
     public override void Collect()
     {
         Debug.Log("Humen собирает ресурсы");

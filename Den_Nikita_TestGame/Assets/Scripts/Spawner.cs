@@ -12,16 +12,19 @@ public class Spawner : MonoBehaviour
     {
         if (_player != null)
         {
-          var player =  Instantiate(_player, _root.position,_root.rotation,null);
+            var PlayerProfaile = Context.Instance.PlayerProfaile;
+
+            var player = Instantiate(_player, _root.position, _root.rotation, null);
+            var hero = Instantiate(PlayerProfaile.GetHero(), player.transform.position, player.transform.rotation, player.transform);
 
             var camera = _camera.GetComponent<CinemachineCamera>();
             var input = player.GetComponent<InputSystem>();
-            
+
             camera.Target.TrackingTarget = player.transform;
             //  camera.Target.LookAtTarget = player.transform;
             // camera.Target.LookAtTarget = _cameraTarget.CameraLoocer(input).transform;
-              _cameraTarget.CameraLoocer(input);
+            _cameraTarget.CameraLoocer(input);
         }
-       
+
     }
 }

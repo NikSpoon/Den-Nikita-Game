@@ -1,4 +1,5 @@
 ﻿
+using Mono.Cecil.Cil;
 using System.Collections.Generic;
 
 public class PlayerProfaile
@@ -12,11 +13,11 @@ public class PlayerProfaile
     private const int _maxHeroes = 4;
 
     private readonly List<BaseHero> _heroes = new List<BaseHero>();
-
     public int UnlockedHeroSlots => _curreuntHeroes;
     public IReadOnlyList<BaseHero> Heroes => _heroes;
+    private BaseHero _currentHero;
 
-    public void InitNewProfail(string name , string pasword, BaseHero hero)
+    public void InitNewProfail(string name, string pasword, BaseHero hero)
     {
         Name = name;
         Pasword = pasword;
@@ -26,7 +27,7 @@ public class PlayerProfaile
         _curreuntHeroes = 1;
         _heroes.Clear();
         _heroes.Add(hero);
-
+        _currentHero = (hero);
     }
     public void GetProff(string name, int id, int lewl)
     {
@@ -48,13 +49,13 @@ public class PlayerProfaile
             return false;
 
         if (_heroes.Contains(hero))
-            return false; 
+            return false;
 
         _heroes.Add(hero);
         return true;
     }
 
-  
+
     public bool RemoveHero(BaseHero hero)
     {
         if (hero == null)
@@ -70,6 +71,22 @@ public class PlayerProfaile
 
         _heroes.RemoveAt(index);
         return true;
+    }
+    public BaseHero GetHero()
+    {
+        return _currentHero;
+    }
+    public BaseHero ChengeHero(BaseHero newHero)
+    {
+        foreach (var hero in _heroes)
+        {
+            if (newHero == hero)
+            {
+                _currentHero = newHero;
+               return _currentHero;
+            }
+        }
+        return null;
     }
 }
 

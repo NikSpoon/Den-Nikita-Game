@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 974d930818014d84fbb4e1ed08c202c4, type: 3}
-  m_Name: New Hero Database
+  m_Name: Teat Hero Database
   m_EditorClassIdentifier: 
   _heroes:
-  - {fileID: 0}
+  - {fileID: 8364527940929244115, guid: 0c95b6590a612ee41ae00c2dff916b78, type: 3}

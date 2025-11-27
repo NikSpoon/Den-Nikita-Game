@@ -4,10 +4,10 @@ using UnityEngine;
 public class PlayerAnim : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
-    [SerializeField] private InputSystem _input;
+    public InputSystem MyInput;
     private void Update()
     {
-        if (_input.VerticalImput != 0 || _input.HorizontalImput != 0)
+        if (MyInput.VerticalImput != 0 || MyInput.HorizontalImput != 0)
         {
             _animator.SetBool("IsRunning", true);
 
