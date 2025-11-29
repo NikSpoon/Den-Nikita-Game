@@ -5,8 +5,7 @@ public class Context : MonoBehaviour
 {
     public static Context Instance { get; private set; }
 
-    public Database Data = new Database();
-
+    public Database Data;
 
     public PlayerProfaile PlayerProfaile = new PlayerProfaile();
     public IAppSystem UIApp = new UIApp();

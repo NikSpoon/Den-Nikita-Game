@@ -1,5 +1,4 @@
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class CameraLoocerController : MonoBehaviour
 {
@@ -7,19 +6,20 @@ public class CameraLoocerController : MonoBehaviour
     [SerializeField] private float _smooth = 6f;         
 
     private InputSystem _inputSystem;
-    private GameObject _player;
+    private GameObject _hero;
     private PlayerController _playerController;
 
     private void Start()
     {
-        _player = GameObject.FindGameObjectWithTag("Player");
-        _inputSystem = _player.GetComponent<InputSystem>();
-        _playerController = _player.GetComponent<PlayerController>();
+
+        _hero = FindFirstObjectByType<BaseHero>().gameObject;
+        _inputSystem = _hero.GetComponent<InputSystem>();
+        _playerController = _hero.GetComponent<PlayerController>();
     }
 
     private void LateUpdate()
     {
-        Vector3 playerPos = _player.transform.position;
+        Vector3 playerPos = _hero.transform.position;
         Vector3 hitPos = _inputSystem.HitInfo;
 
         hitPos.y = playerPos.y; //??????????????????????

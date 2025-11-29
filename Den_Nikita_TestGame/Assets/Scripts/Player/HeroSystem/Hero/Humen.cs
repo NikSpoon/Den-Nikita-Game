@@ -2,14 +2,11 @@
 
 public class Humen : BaseHero
 {
-    [SerializeField] private Rigidbody _rb;
-    protected override Rigidbody HeroRigidbody => _rb;
 
-    private new void Start()
+    public void Start()
     {
-        InitRb();
+        _player.GetComponent<SelectrdPlayerPos>().InitHero(gameObject.transform);
     }
-
     public override void Collect()
     {
         Debug.Log("Humen собирает ресурсы");

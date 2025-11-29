@@ -9,6 +9,7 @@ public class Movements : MonoBehaviour
     [SerializeField] private Rigidbody _rb;
     [SerializeField] private float _groundCheckDistance = 0.2f;
     [SerializeField] private LayerMask _groundMask;
+
     private void FixedUpdate()
     {
         var nextPosition = _rb.position + Direction * _speed * Time.fixedDeltaTime;

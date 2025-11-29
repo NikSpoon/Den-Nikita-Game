@@ -14,30 +14,23 @@ public abstract class BaseHero : MonoBehaviour
 
     [Header("Physics")]
     [SerializeField] protected float _mass;
-    protected abstract Rigidbody HeroRigidbody { get; }
 
     [Header("Spels")]
     [SerializeField] private BaseHeroSpel[] _spels;
 
-    private GameObject _player;
+    protected GameObject _player;
 
     protected void Awake()
     {
         PlayerInit();
+    }
 
-    }
-    public void InitRb()
-    {
-        _player.GetComponent<Movements>().GetRB(HeroRigidbody);
-    }
-    private void PlayerInit()
+    public  void PlayerInit()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
-        GetComponent<PlayerAnim>().MyInput = _player.GetComponent<InputSystem>();
-
     }
 
-    public virtual void Action(int index)
+    public  void Action(int index)
     {
         if (index < 0 || index >= _spels.Length) return;
         if (_spels[index] == null) return;
@@ -49,5 +42,6 @@ public abstract class BaseHero : MonoBehaviour
     public abstract void LightAttack();
     public abstract void HeavyAttack();
     public abstract void SpecialAttack();
-  
+ 
+
 }

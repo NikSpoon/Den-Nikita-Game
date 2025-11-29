@@ -15,10 +15,10 @@ public class Spawner : MonoBehaviour
             var PlayerProfaile = Context.Instance.PlayerProfaile;
 
             var player = Instantiate(_player, _root.position, _root.rotation, null);
-            var hero = Instantiate(PlayerProfaile.GetHero(), player.transform.position, player.transform.rotation, player.transform);
+            var hero = Instantiate(PlayerProfaile.GetHero(), player.transform.position, player.transform.rotation, null);
 
             var camera = _camera.GetComponent<CinemachineCamera>();
-            var input = player.GetComponent<InputSystem>();
+            var input = hero.GetComponent<InputSystem>();
 
             camera.Target.TrackingTarget = player.transform;
             //  camera.Target.LookAtTarget = player.transform;
