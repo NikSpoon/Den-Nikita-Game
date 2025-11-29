@@ -4,6 +4,11 @@ using UnityEngine;
 
 public abstract class BaseHero : MonoBehaviour
 {
+    [Header("Stats")]
+    public int MaxHeals;
+    public int MaxMana;
+    public int MaxStamina;
+
     [Header("Base Hero Data")]
     [SerializeField] protected Sprite _heroSprite;
     [SerializeField] protected GameObject _heroPrefab;
@@ -25,23 +30,24 @@ public abstract class BaseHero : MonoBehaviour
         PlayerInit();
     }
 
-    public  void PlayerInit()
+    public void PlayerInit()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
+        _player.GetComponent<Health>().InitInvoke();
     }
 
-    public  void Action(int index)
+    public void Action(int index)
     {
         if (index < 0 || index >= _spels.Length) return;
         if (_spels[index] == null) return;
 
         _spels[index].Cast();
     }
-    
+
     public abstract void Collect();
     public abstract void LightAttack();
     public abstract void HeavyAttack();
     public abstract void SpecialAttack();
- 
+
 
 }

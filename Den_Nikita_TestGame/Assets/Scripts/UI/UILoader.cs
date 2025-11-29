@@ -11,7 +11,7 @@ public class UILoader : MonoBehaviour
     {
         if (ChekInputFild())
         {
-            Context.Instance.PlayerProfaile.InitNewProfail(_load.text, _pasword.text, Context.Instance.Data.HeroDatabase.Heroes[0]);
+            Context.Instance.PlayerProfale.InitNewProfail(_load.text, _pasword.text, Context.Instance.Data.HeroDatabase.Heroes[0]);
             GoToMeinMenu();
         }
         else
@@ -21,7 +21,7 @@ public class UILoader : MonoBehaviour
     }
     public void TesterLoad()
     {
-        Context.Instance.PlayerProfaile.InitNewProfail("TesterDima", "1", Context.Instance.Data.HeroDatabase.Heroes[0]);
+        Context.Instance.PlayerProfale.InitNewProfail("TesterDima", "1", Context.Instance.Data.HeroDatabase.Heroes[0]);
         GoToMeinMenu();
     }
     private void GoToMeinMenu()

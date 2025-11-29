@@ -13,9 +13,9 @@ public class UIProfaile : MonoBehaviour
     }
     private void InitProf()
     {
-        _name.text = Context.Instance.PlayerProfaile.Name;
-        _levl.text =  Context.Instance.PlayerProfaile.Lewl.ToString();
-        _id.text =  Context.Instance.PlayerProfaile.ID.ToString();
+        _name.text = Context.Instance.PlayerProfale.Name;
+        _levl.text =  Context.Instance.PlayerProfale.Lewl.ToString();
+        _id.text =  Context.Instance.PlayerProfale.ID.ToString();
     }
 
 }

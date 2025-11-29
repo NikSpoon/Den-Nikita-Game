@@ -52,6 +52,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e58217836f164194e81a6b8e869b95b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxHeals: 200
+  MaxMana: 0
+  MaxStamina: 0
   _heroSprite: {fileID: 0}
   _heroPrefab: {fileID: 1349673995837901403}
   _moveSpeed: 10

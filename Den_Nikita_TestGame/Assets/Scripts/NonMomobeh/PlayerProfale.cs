@@ -2,7 +2,7 @@
 using Mono.Cecil.Cil;
 using System.Collections.Generic;
 
-public class PlayerProfaile
+public class PlayerProfale
 {
     public string Name { get; private set; }
     public string Pasword { get; private set; }
@@ -11,11 +11,11 @@ public class PlayerProfaile
 
     private int _curreuntHeroes;
     private const int _maxHeroes = 4;
+    private BaseHero _currentHero;
 
     private readonly List<BaseHero> _heroes = new List<BaseHero>();
     public int UnlockedHeroSlots => _curreuntHeroes;
     public IReadOnlyList<BaseHero> Heroes => _heroes;
-    private BaseHero _currentHero;
 
     public void InitNewProfail(string name, string pasword, BaseHero hero)
     {

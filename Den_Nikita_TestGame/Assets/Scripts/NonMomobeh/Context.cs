@@ -7,7 +7,7 @@ public class Context : MonoBehaviour
 
     public Database Data;
 
-    public PlayerProfaile PlayerProfaile = new PlayerProfaile();
+    public PlayerProfale PlayerProfale = new PlayerProfale();
     public IAppSystem UIApp = new UIApp();
 
     private void Awake()

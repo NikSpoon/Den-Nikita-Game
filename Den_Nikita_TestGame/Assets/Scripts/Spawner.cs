@@ -12,7 +12,7 @@ public class Spawner : MonoBehaviour
     {
         if (_player != null)
         {
-            var PlayerProfaile = Context.Instance.PlayerProfaile;
+            var PlayerProfaile = Context.Instance.PlayerProfale;
 
             var player = Instantiate(_player, _root.position, _root.rotation, null);
             var hero = Instantiate(PlayerProfaile.GetHero(), player.transform.position, player.transform.rotation, null);
