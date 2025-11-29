@@ -854,7 +854,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10c9a1646a9aada4082178dac1739b3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 8718673703266742442, guid: 631ba66a18caea64d8c9050447f659dd, type: 3}
+  _player: {fileID: 4522207422729031864, guid: 320e8a24bca6d8742baab19c98c1afbc, type: 3}
   _root: {fileID: 910258546}
   _camera: {fileID: 165572890}
   _cameraTarget: {fileID: 910258547}
