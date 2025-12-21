@@ -311,6 +311,7 @@ public class Marching : MonoBehaviour
         PopulateTirraineMap();
         CreateMeshData();
         BuildMesh();
+       
     }
     private void CreateMeshData()
     {
@@ -426,7 +427,6 @@ public class Marching : MonoBehaviour
         Mesh mesh = new Mesh();
         mesh.vertices = Vertices.ToArray();
         mesh.triangles = Triengls.ToArray();
-        mesh.RecalculateTangents();
         mesh.RecalculateNormals();
         _meshFilter.mesh = mesh;
     }
