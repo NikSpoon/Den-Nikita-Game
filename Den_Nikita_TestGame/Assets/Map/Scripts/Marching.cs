@@ -1,4 +1,4 @@
-
+﻿
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -299,10 +299,10 @@ public class Marching : MonoBehaviour
     private MeshFilter _meshFilter;
     private int _configIndex = -1;
 
-    private float _terraineSurfase = 0.5f;
-    private int _wight = 32;
-    private int _height = 10;
-    private float[,,] _terraineMap;
+    public float _terraineSurfase = 0.5f;
+    public int _wight = 32;
+    public int _height = 10;
+    public float[,,] _terraineMap;
 
     private void Start()
     {
@@ -311,7 +311,25 @@ public class Marching : MonoBehaviour
         PopulateTirraineMap();
         CreateMeshData();
         BuildMesh();
-       
+        UpdateMeshCollider();
+
+    }
+    private void UpdateMeshCollider()
+    {
+        // Пытаемся получить существующий MeshCollider
+        MeshCollider meshCollider = GetComponent<MeshCollider>();
+
+        // Если он есть — удаляем его
+        if (meshCollider != null)
+        {
+            Destroy(meshCollider);
+        }
+
+        // Добавляем новый MeshCollider
+        meshCollider = gameObject.AddComponent<MeshCollider>();
+
+        // Назначаем ему текущий меш
+        meshCollider.sharedMesh = _meshFilter.mesh;
     }
     private void CreateMeshData()
     {
@@ -328,24 +346,13 @@ public class Marching : MonoBehaviour
                         cube[i] = _terraineMap[corner.x, corner.y, corner.z];
                     }
 
-                    MarchCube(new Vector3 (x,y,z),cube);
+                    MarchCube(new Vector3(x, y, z), cube);
                 }
             }
         }
     }
 
-  /*  private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            _configIndex++;
-            ClearMeshData();
-            MarchCube(Vector3.zero, _configIndex);
-            BuildMesh();
-        }
-     }
-   */
-    private int GetCubeCinfiguration(float[] cube)
+    public int GetCubeCinfiguration(float[] cube)
     {
         int indexConfig = 0;
         for (int i = 0; i < 8; i++)
@@ -366,26 +373,7 @@ public class Marching : MonoBehaviour
                 for (int z = 0; z < _wight + 1; z++)
                 {
                     float thisHight = (float)_height * Mathf.PerlinNoise((float)x / 16f * 1.5f + 0.001f, (float)z / 16f * 1.5f + 0.001f);
-                    float point = 0;
-
-                    if (y <= thisHight - 0.5f)
-                    {
-                        point = 0f;
-                    }
-                    else if (y > thisHight + 0.5f)
-                    {
-                        point = 1f;
-                    }
-                    else if (y > thisHight)
-                    {
-                        point = (float)y - thisHight;
-                    }
-                    else
-                    {
-                        point = thisHight - (float)y;
-                    }
-
-                    _terraineMap[x, y, z] = point;
+                    _terraineMap[x, y, z] = (float)y - thisHight;
                 }
             }
         }

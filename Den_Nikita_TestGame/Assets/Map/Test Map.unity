@@ -155,7 +155,7 @@ Camera:
   m_GameObject: {fileID: 289338320}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -206,7 +206,7 @@ Transform:
   m_GameObject: {fileID: 289338320}
   serializedVersion: 2
   m_LocalRotation: {x: 0.110113375, y: -0, z: -0, w: 0.9939191}
-  m_LocalPosition: {x: 6.37, y: 16, z: -13.29}
+  m_LocalPosition: {x: 15.59, y: 16, z: -13.29}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -389,6 +389,7 @@ GameObject:
   - component: {fileID: 1272872364}
   - component: {fileID: 1272872365}
   - component: {fileID: 1272872366}
+  - component: {fileID: 1272872367}
   m_Layer: 0
   m_Name: Marching
   m_TagString: Untagged
@@ -434,6 +435,9 @@ MonoBehaviour:
   - {x: 0, y: 1, z: 1}
   Vertices: []
   Triengls: 
+  _terraineSurfase: 0.5
+  _wight: 32
+  _height: 10
 --- !u!33 &1272872365
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -487,6 +491,32 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1272872367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272872362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd7f933afa78408449c7715d0029c3b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CornerTable:
+  - {x: 0, y: 0, z: 0}
+  - {x: 1, y: 0, z: 0}
+  - {x: 1, y: 1, z: 0}
+  - {x: 0, y: 1, z: 0}
+  - {x: 0, y: 0, z: 1}
+  - {x: 1, y: 0, z: 1}
+  - {x: 1, y: 1, z: 1}
+  - {x: 0, y: 1, z: 1}
+  Vertices: []
+  Triengls: 
+  _terraineSurfase: 0.5
+  _wight: 32
+  _height: 10
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
