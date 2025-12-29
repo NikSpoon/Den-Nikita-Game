@@ -7,6 +7,7 @@ public class MarchingDebuger : Marching
     private bool highlightOnHover = true; // Флажок для включения/выключения подсветки при наведении
 
     private Vector3Int? highlightedCube = null;
+    public Vector3 TargetCube;
 
     private void Update()
     {
@@ -39,6 +40,7 @@ public class MarchingDebuger : Marching
         // Рисуем подсвеченный куб, если он есть
         if (highlightedCube.HasValue)
         {
+            TargetCube = new Vector3(highlightedCube.Value.x, highlightedCube.Value.y, highlightedCube.Value.z);
             DrawHighlightedCube(highlightedCube.Value);
         }
     }

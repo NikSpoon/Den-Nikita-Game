@@ -290,9 +290,19 @@ public class Marching : MonoBehaviour
     public int _height = 10;
 
     public float[,,] _terraineMap;
+
     public bool SmoothTerraine;
-    private void Start()
+    public bool FlatShaded;
+    private void TestInitBool()
     {
+        SmoothTerraine = true;
+        FlatShaded = false;
+    }
+    private void Start() 
+    {
+        TestInitBool(); // FOR TEST !!!!!!!!!!!
+
+
         _meshFilter = GetComponent<MeshFilter>();
         _terraineMap = new float[_wight + 1, _height + 1, _wight + 1];
         PopulateTirraineMap();
@@ -304,6 +314,18 @@ public class Marching : MonoBehaviour
     private float SampleTerraine(Vector3Int point)
     {
         return _terraineMap[point.x, point.y, point.z];
+    }
+    public int VertForIndex(Vector3 vert)
+    {
+        for (int i = 0; i < Vertices.Count; i++)
+        {
+            if (Vertices[i] == vert)
+                return i;
+
+        }
+
+        Vertices.Add(vert);
+        return Vertices.Count - 1;
     }
     private void UpdateMeshCollider()
     {
@@ -412,9 +434,16 @@ public class Marching : MonoBehaviour
                   vertPosition = (vert1 + vert2) / 2f;
                 }
 
+                if (FlatShaded)
+                {
+                    Vertices.Add(vertPosition);
+                    Triengls.Add(Vertices.Count - 1);
+                }
+                else
+                {
+                    Triengls.Add(VertForIndex(vertPosition));
+                }
 
-                Vertices.Add(vertPosition);
-                Triengls.Add(Vertices.Count - 1);
                 adgeIndex++;
             }
         }
@@ -431,6 +460,27 @@ public class Marching : MonoBehaviour
         mesh.triangles = Triengls.ToArray();
         mesh.RecalculateNormals();
         _meshFilter.mesh = mesh;
+    }
+    
+    public void PlaseTerraine(Vector3 pos)
+    {
+        Vector3Int v3Int = new Vector3Int(Mathf.CeilToInt(pos.x), Mathf.CeilToInt(pos.y), Mathf.CeilToInt(pos.z));
+        _terraineMap[v3Int.x, v3Int.y, v3Int.z] = 0f;
+      
+        ClearMeshData();
+        CreateMeshData();
+        BuildMesh();
+        UpdateMeshCollider();
+    }
+    public void RemuveTerraine(Vector3 pos)
+    {
+        Vector3Int v3Int = new Vector3Int(Mathf.FloorToInt(pos.x), Mathf.FloorToInt(pos.y), Mathf.FloorToInt(pos.z));
+        _terraineMap[v3Int.x, v3Int.y, v3Int.z] = 1f;
+
+        ClearMeshData();
+        CreateMeshData();
+        BuildMesh();
+        UpdateMeshCollider();
     }
 }
 

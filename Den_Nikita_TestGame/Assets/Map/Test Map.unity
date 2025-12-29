@@ -717,9 +717,10 @@ GameObject:
   - component: {fileID: 1272872365}
   - component: {fileID: 1272872366}
   - component: {fileID: 1272872367}
+  - component: {fileID: 1272872368}
   m_Layer: 0
   m_Name: Marching
-  m_TagString: Untagged
+  m_TagString: Terraine
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -766,6 +767,7 @@ MonoBehaviour:
   _wight: 32
   _height: 10
   SmoothTerraine: 1
+  FlatShaded: 0
 --- !u!33 &1272872365
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -846,6 +848,37 @@ MonoBehaviour:
   _wight: 32
   _height: 10
   SmoothTerraine: 1
+  FlatShaded: 0
+  TargetCube: {x: 0, y: 0, z: 0}
+--- !u!114 &1272872368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272872362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca154efef6fa84942a09999f25ef7094, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CornerTable:
+  - {x: 0, y: 0, z: 0}
+  - {x: 1, y: 0, z: 0}
+  - {x: 1, y: 1, z: 0}
+  - {x: 0, y: 1, z: 0}
+  - {x: 0, y: 0, z: 1}
+  - {x: 1, y: 0, z: 1}
+  - {x: 1, y: 1, z: 1}
+  - {x: 0, y: 1, z: 1}
+  Vertices: []
+  Triengls: 
+  _terraineSurfase: 0.5
+  _wight: 32
+  _height: 10
+  SmoothTerraine: 0
+  FlatShaded: 0
+  MarchingDebuger: {fileID: 1272872367}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
