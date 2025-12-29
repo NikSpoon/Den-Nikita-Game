@@ -17,21 +17,8 @@ public class Marching : MonoBehaviour
         new Vector3Int(0,1,1),
     };
 
-    public Vector3[,] EdgeTable = new Vector3[12, 2]
-    {
-        {new Vector3(0.0f,0.0f,0.0f),new Vector3(1.0f,0.0f,0.0f) },
-        {new Vector3(1.0f,0.0f,0.0f),new Vector3(1.0f,1.0f,0.0f) },
-        {new Vector3(0.0f,1.0f,0.0f),new Vector3(1.0f,1.0f,0.0f) },
-        {new Vector3(0.0f,0.0f,0.0f),new Vector3(0.0f,1.0f,0.0f) },
-        {new Vector3(0.0f,0.0f,1.0f),new Vector3(1.0f,0.0f,1.0f) },
-        {new Vector3(1.0f,0.0f,1.0f),new Vector3(1.0f,1.0f,1.0f) },
-        {new Vector3(0.0f,1.0f,1.0f),new Vector3(1.0f,1.0f,1.0f) },
-        {new Vector3(0.0f,0.0f,1.0f),new Vector3(0.0f,1.0f,1.0f) },
-        {new Vector3(0.0f,0.0f,0.0f),new Vector3(0.0f,0.0f,1.0f) },
-        {new Vector3(1.0f,0.0f,0.0f),new Vector3(1.0f,0.0f,1.0f) },
-        {new Vector3(1.0f,1.0f,0.0f),new Vector3(1.0f,1.0f,1.0f) },
-        {new Vector3(0.0f,1.0f,0.0f),new Vector3(0.0f,1.0f,1.0f) },
-    };
+    public int[,] EdgeIndexes = new int[12, 2]
+    { {0, 1},{1, 2},{3, 2},{0, 3},{4, 5},{5, 6},{7, 6},{4, 7},{0, 4},{1, 5},{2, 6},{3, 7 } };
 
     public int[,] TriangleTable = new int[,]
     {
@@ -297,13 +284,13 @@ public class Marching : MonoBehaviour
     public List<int> Triengls = new List<int>();
 
     private MeshFilter _meshFilter;
-    private int _configIndex = -1;
 
     public float _terraineSurfase = 0.5f;
     public int _wight = 32;
     public int _height = 10;
-    public float[,,] _terraineMap;
 
+    public float[,,] _terraineMap;
+    public bool SmoothTerraine;
     private void Start()
     {
         _meshFilter = GetComponent<MeshFilter>();
@@ -313,6 +300,10 @@ public class Marching : MonoBehaviour
         BuildMesh();
         UpdateMeshCollider();
 
+    }
+    private float SampleTerraine(Vector3Int point)
+    {
+        return _terraineMap[point.x, point.y, point.z];
     }
     private void UpdateMeshCollider()
     {
@@ -339,14 +330,8 @@ public class Marching : MonoBehaviour
             {
                 for (int z = 0; z < _wight; z++)
                 {
-                    float[] cube = new float[8];
-                    for (int i = 0; i < 8; i++)
-                    {
-                        Vector3Int corner = new Vector3Int(x, y, z) + CornerTable[i];
-                        cube[i] = _terraineMap[corner.x, corner.y, corner.z];
-                    }
 
-                    MarchCube(new Vector3(x, y, z), cube);
+                    MarchCube(new Vector3Int(x, y, z));
                 }
             }
         }
@@ -378,8 +363,14 @@ public class Marching : MonoBehaviour
             }
         }
     }
-    public void MarchCube(Vector3 position, float[] cube)
+    public void MarchCube(Vector3Int position)
     {
+        float[] cube = new float[8];
+        for (int i = 0; i < 8; i++)
+        {
+            cube[i] = SampleTerraine(position + CornerTable[i]);
+        }
+
         int indexConfig = GetCubeCinfiguration(cube);
 
         if (indexConfig == 0 || indexConfig == 255)
@@ -394,10 +385,33 @@ public class Marching : MonoBehaviour
                 if (index == -1)
                     return;
 
-                Vector3 vert1 = position + EdgeTable[index, 0];
-                Vector3 vert2 = position + EdgeTable[index, 1];
+                Vector3 vert1 = position + CornerTable[EdgeIndexes[index, 0]];
+                Vector3 vert2 = position + CornerTable[EdgeIndexes[index, 1]];
+                Vector3 vertPosition;
+                if (SmoothTerraine)
+                {
+                    float vert1Sampl = cube[EdgeIndexes[index, 0]];
+                    float vert2Sampl = cube[EdgeIndexes[index, 1]];
 
-                Vector3 vertPosition = (vert1 + vert2) / 2f;
+                    float differense = vert2Sampl - vert1Sampl;
+
+                    if (differense == 0)
+                    {
+                        differense = _terraineSurfase;
+                    }
+                    else
+                    {
+                        differense = (_terraineSurfase - vert1Sampl) / differense;
+                    }
+
+                    vertPosition = vert1 + ((vert2 - vert1) * differense);
+                }
+                else
+                {
+                    Debug.Log("SmoothTerraine - No ");
+                  vertPosition = (vert1 + vert2) / 2f;
+                }
+
 
                 Vertices.Add(vertPosition);
                 Triengls.Add(Vertices.Count - 1);

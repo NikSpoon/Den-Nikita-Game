@@ -67,13 +67,13 @@ public class MarchingDebuger : Marching
     private void DrawHighlightedCube(Vector3Int center)
     {
         // Ярко-красный цвет для выбранного куба
-        DrawCubeAtPosition(center, Color.red);
+        DrawCubeAtPosition(center, Color.black);
 
         // Цвет для соседних кубов
         Color neighborColor = new Color(0.6f, 0.6f, 0.8f);
 
         // Рисуем соседние кубы
-        for (int dx = -1; dx <= 1; dx++)
+       /* for (int dx = -1; dx <= 1; dx++)
         {
             for (int dy = -1; dy <= 1; dy++)
             {
@@ -85,7 +85,8 @@ public class MarchingDebuger : Marching
                     DrawCubeAtPosition(neighbor, neighborColor);
                 }
             }
-        }
+         }
+        */
     }
 
 
