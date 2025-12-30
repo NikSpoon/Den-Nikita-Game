@@ -138,6 +138,7 @@ public class MarchingDebuger : Marching
 
     private void DrawActiveCubes()
     {
+        
         for (int x = 0; x < _wight; x++)
         {
             for (int y = 0; y < _height; y++)

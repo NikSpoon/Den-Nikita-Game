@@ -7,13 +7,10 @@ public class MarchingTransform : Marching
     [SerializeField] private MarchingDebuger MarchingDebuger;
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z) && MarchingDebuger.TargetCube != null)
-        {
+        if (Input.GetKey(KeyCode.Z))
             PlaseTerraine(MarchingDebuger.TargetCube);
-        }
-        if (Input.GetKeyDown(KeyCode.X) && MarchingDebuger.TargetCube != null)
-        {
+
+        if (Input.GetKey(KeyCode.X))
             RemuveTerraine(MarchingDebuger.TargetCube);
-        }
     }
 }

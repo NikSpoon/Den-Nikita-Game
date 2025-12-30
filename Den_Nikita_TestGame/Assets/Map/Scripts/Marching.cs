@@ -1,4 +1,6 @@
 ﻿
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -280,84 +282,125 @@ public class Marching : MonoBehaviour
         {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}
     };
 
+    // =======================
+    // Mesh data
+    // =======================
+
     public List<Vector3> Vertices = new List<Vector3>();
     public List<int> Triengls = new List<int>();
 
     private MeshFilter _meshFilter;
+    private Mesh _mesh;
+    private MeshCollider _meshCollider;
+
+    // =======================
+    // Terrain settings
+    // =======================
 
     public float _terraineSurfase = 0.5f;
     public int _wight = 32;
     public int _height = 10;
-
     public float[,,] _terraineMap;
 
-    public bool SmoothTerraine;
-    public bool FlatShaded;
-    private void TestInitBool()
-    {
-        SmoothTerraine = true;
-        FlatShaded = false;
-    }
-    private void Start() 
-    {
-        TestInitBool(); // FOR TEST !!!!!!!!!!!
+    public bool SmoothTerraine = true;
+    public bool FlatShaded = false;
 
+    // =======================
+    // Edit settings
+    // =======================
 
+    [SerializeField] private float _editStep = 0.1f;
+    [SerializeField] private int _radius = 1;
+
+    // =======================
+    // Performance
+    // =======================
+
+    [Header("Performance")]
+    [Tooltip("Дебаунс для MeshCollider (сек). Если часто правишь — collider будет обновляться реже.")]
+    [SerializeField] private float _colliderDebounce = 0.08f;
+
+    // ускорение вершин (если не flat shaded)
+    private Dictionary<Vector3, int> _vertToIndex = new Dictionary<Vector3, int>(8192);
+
+    // ✅ убрали аллокации в MarchCube
+    private readonly float[] _cubeBuffer = new float[8];
+
+    // ✅ кэш по кубам: храним вершины треугольников (каждые 3 = треугольник)
+    private List<Vector3>[] _cubeTriCache;
+
+    // ✅ dirty кубы на пересчёт
+    private readonly HashSet<int> _dirtyCubeIds = new HashSet<int>();
+
+    // перестройка меша из кэша (корутина)
+    private Coroutine _rebuildRoutine;
+    private bool _rebuildRequested;
+
+    // collider debounce
+    private Coroutine _colliderRoutine;
+
+    // =======================
+    // Unity
+    // =======================
+
+    private void Start()
+    {
         _meshFilter = GetComponent<MeshFilter>();
+
+        _mesh = new Mesh();
+        _mesh.name = "MarchingMesh";
+        _mesh.indexFormat = UnityEngine.Rendering.IndexFormat.UInt32;
+        _meshFilter.sharedMesh = _mesh;
+
+        _meshCollider = GetComponent<MeshCollider>();
+        if (_meshCollider == null) _meshCollider = gameObject.AddComponent<MeshCollider>();
+
         _terraineMap = new float[_wight + 1, _height + 1, _wight + 1];
         PopulateTirraineMap();
-        CreateMeshData();
-        BuildMesh();
-        UpdateMeshCollider();
 
+        InitCubeCache();
+        FullRebuildAllCubesToCache();  // один раз тяжело посчитать всё
+        RequestRebuild();              // собрать меш из кэша
     }
-    private float SampleTerraine(Vector3Int point)
+
+    // =======================
+    // Init cache
+    // =======================
+
+    private void InitCubeCache()
     {
-        return _terraineMap[point.x, point.y, point.z];
+        int cubeCount = _wight * _height * _wight;
+        _cubeTriCache = new List<Vector3>[cubeCount];
+        for (int i = 0; i < cubeCount; i++)
+            _cubeTriCache[i] = new List<Vector3>(64);
     }
-    public int VertForIndex(Vector3 vert)
+
+    private int CubeId(int x, int y, int z) => x + _wight * (y + _height * z);
+
+    private bool CubeInBounds(int x, int y, int z)
+        => x >= 0 && y >= 0 && z >= 0 && x < _wight && y < _height && z < _wight;
+
+    private float SampleTerraine(Vector3Int point) => _terraineMap[point.x, point.y, point.z];
+
+    // =======================
+    // Terrain generation
+    // =======================
+
+    private void PopulateTirraineMap()
     {
-        for (int i = 0; i < Vertices.Count; i++)
-        {
-            if (Vertices[i] == vert)
-                return i;
-
-        }
-
-        Vertices.Add(vert);
-        return Vertices.Count - 1;
-    }
-    private void UpdateMeshCollider()
-    {
-        // Пытаемся получить существующий MeshCollider
-        MeshCollider meshCollider = GetComponent<MeshCollider>();
-
-        // Если он есть — удаляем его
-        if (meshCollider != null)
-        {
-            Destroy(meshCollider);
-        }
-
-        // Добавляем новый MeshCollider
-        meshCollider = gameObject.AddComponent<MeshCollider>();
-
-        // Назначаем ему текущий меш
-        meshCollider.sharedMesh = _meshFilter.mesh;
-    }
-    private void CreateMeshData()
-    {
-        for (int x = 0; x < _wight; x++)
-        {
-            for (int y = 0; y < _height; y++)
-            {
-                for (int z = 0; z < _wight; z++)
+        for (int x = 0; x < _wight + 1; x++)
+            for (int y = 0; y < _height + 1; y++)
+                for (int z = 0; z < _wight + 1; z++)
                 {
-
-                    MarchCube(new Vector3Int(x, y, z));
+                    float thisHight = _height * Mathf.PerlinNoise((float)x / 16f * 1.5f + 0.001f,
+                                                                 (float)z / 16f * 1.5f + 0.001f);
+                    _terraineMap[x, y, z] = (float)y - thisHight; // signed density
                 }
-            }
-        }
     }
+
+    // =======================
+    // Cube configuration
+    // =======================
 
     public int GetCubeCinfiguration(float[] cube)
     {
@@ -366,121 +409,263 @@ public class Marching : MonoBehaviour
         {
             if (cube[i] > _terraineSurfase)
                 indexConfig |= 1 << i;
-
         }
         return indexConfig;
     }
 
-    private void PopulateTirraineMap()
+    // =======================
+    // Vertex indexing
+    // =======================
+
+    public int VertForIndex(Vector3 vert)
     {
-        for (int x = 0; x < _wight + 1; x++)
-        {
-            for (int y = 0; y < _height + 1; y++)
-            {
-                for (int z = 0; z < _wight + 1; z++)
-                {
-                    float thisHight = (float)_height * Mathf.PerlinNoise((float)x / 16f * 1.5f + 0.001f, (float)z / 16f * 1.5f + 0.001f);
-                    _terraineMap[x, y, z] = (float)y - thisHight;
-                }
-            }
-        }
+        if (_vertToIndex.TryGetValue(vert, out int idx))
+            return idx;
+
+        idx = Vertices.Count;
+        Vertices.Add(vert);
+        _vertToIndex.Add(vert, idx);
+        return idx;
     }
-    public void MarchCube(Vector3Int position)
+
+    // =======================
+    // Marching per cube -> writes to cache
+    // =======================
+
+    private void ComputeCubeToCache(int x, int y, int z)
     {
-        float[] cube = new float[8];
+        int id = CubeId(x, y, z);
+        List<Vector3> outTriVerts = _cubeTriCache[id];
+        outTriVerts.Clear();
+
+        Vector3Int pos = new Vector3Int(x, y, z);
+
+        // ✅ без new float[8]
         for (int i = 0; i < 8; i++)
-        {
-            cube[i] = SampleTerraine(position + CornerTable[i]);
-        }
+            _cubeBuffer[i] = SampleTerraine(pos + CornerTable[i]);
 
-        int indexConfig = GetCubeCinfiguration(cube);
-
+        int indexConfig = GetCubeCinfiguration(_cubeBuffer);
         if (indexConfig == 0 || indexConfig == 255)
             return;
 
-        int adgeIndex = 0;
+        int edgeIndex = 0;
         for (int i = 0; i < 5; i++)
         {
             for (int a = 0; a < 3; a++)
             {
-                int index = TriangleTable[indexConfig, adgeIndex];
-                if (index == -1)
-                    return;
+                int edge = TriangleTable[indexConfig, edgeIndex];
+                if (edge == -1) return;
 
-                Vector3 vert1 = position + CornerTable[EdgeIndexes[index, 0]];
-                Vector3 vert2 = position + CornerTable[EdgeIndexes[index, 1]];
+                Vector3 vert1 = pos + CornerTable[EdgeIndexes[edge, 0]];
+                Vector3 vert2 = pos + CornerTable[EdgeIndexes[edge, 1]];
+
                 Vector3 vertPosition;
                 if (SmoothTerraine)
                 {
-                    float vert1Sampl = cube[EdgeIndexes[index, 0]];
-                    float vert2Sampl = cube[EdgeIndexes[index, 1]];
+                    float s1 = _cubeBuffer[EdgeIndexes[edge, 0]];
+                    float s2 = _cubeBuffer[EdgeIndexes[edge, 1]];
+                    float d = s2 - s1;
 
-                    float differense = vert2Sampl - vert1Sampl;
-
-                    if (differense == 0)
-                    {
-                        differense = _terraineSurfase;
-                    }
-                    else
-                    {
-                        differense = (_terraineSurfase - vert1Sampl) / differense;
-                    }
-
-                    vertPosition = vert1 + ((vert2 - vert1) * differense);
+                    float t = (d == 0f) ? 0.5f : (_terraineSurfase - s1) / d;
+                    vertPosition = vert1 + (vert2 - vert1) * t;
                 }
                 else
                 {
-                    Debug.Log("SmoothTerraine - No ");
-                  vertPosition = (vert1 + vert2) / 2f;
+                    vertPosition = (vert1 + vert2) * 0.5f;
                 }
 
-                if (FlatShaded)
-                {
-                    Vertices.Add(vertPosition);
-                    Triengls.Add(Vertices.Count - 1);
-                }
-                else
-                {
-                    Triengls.Add(VertForIndex(vertPosition));
-                }
-
-                adgeIndex++;
+                outTriVerts.Add(vertPosition);
+                edgeIndex++;
             }
         }
     }
+
+    private void FullRebuildAllCubesToCache()
+    {
+        for (int x = 0; x < _wight; x++)
+            for (int y = 0; y < _height; y++)
+                for (int z = 0; z < _wight; z++)
+                    ComputeCubeToCache(x, y, z);
+    }
+
+    // =======================
+    // Dirty marking (node edit affects up to 8 cubes)
+    // =======================
+
+    private void MarkDirtyCubesFromNode(int nx, int ny, int nz)
+    {
+        // Кубы с базой (nx-1..nx), (ny-1..ny), (nz-1..nz)
+        for (int x = nx - 1; x <= nx; x++)
+            for (int y = ny - 1; y <= ny; y++)
+                for (int z = nz - 1; z <= nz; z++)
+                {
+                    if (!CubeInBounds(x, y, z)) continue;
+                    _dirtyCubeIds.Add(CubeId(x, y, z));
+                }
+    }
+
+    // =======================
+    // Editing API
+    // =======================
+
+    public void PlaseTerraine(Vector3 pos)
+    {
+        var p = ToMapPos(pos);
+        ApplyBrush(p, -_editStep);
+        RequestRebuild();
+    }
+
+    public void RemuveTerraine(Vector3 pos)
+    {
+        var p = ToMapPos(pos);
+        ApplyBrush(p, +_editStep);
+        RequestRebuild();
+    }
+
+    private void ApplyBrush(Vector3Int c, float delta)
+    {
+        for (int x = c.x - _radius; x <= c.x + _radius; x++)
+            for (int y = c.y - _radius; y <= c.y + _radius; y++)
+                for (int z = c.z - _radius; z <= c.z + _radius; z++)
+                {
+                    if (x < 0 || y < 0 || z < 0 || x > _wight || y > _height || z > _wight)
+                        continue;
+
+                    // ✅ ВАЖНО: никаких Clamp01 — у тебя signed density
+                    _terraineMap[x, y, z] += delta;
+
+                    // помечаем кубы вокруг изменённого узла
+                    MarkDirtyCubesFromNode(x, y, z);
+                }
+    }
+
+    private Vector3Int ToMapPos(Vector3 pos)
+    {
+        return new Vector3Int(
+            Mathf.Clamp(Mathf.FloorToInt(pos.x), 0, _wight),
+            Mathf.Clamp(Mathf.FloorToInt(pos.y), 0, _height),
+            Mathf.Clamp(Mathf.FloorToInt(pos.z), 0, _wight)
+        );
+    }
+
+    // =======================
+    // Rebuild from cache
+    // =======================
+
+    public void RequestRebuild()
+    {
+        _rebuildRequested = true;
+        if (_rebuildRoutine == null)
+            _rebuildRoutine = StartCoroutine(RebuildCoroutine());
+    }
+
+    private IEnumerator RebuildCoroutine()
+    {
+        while (_rebuildRequested)
+        {
+            _rebuildRequested = false;
+
+            // 1) пересчитать только dirty кубы
+            if (_dirtyCubeIds.Count > 0)
+            {
+                foreach (int id in _dirtyCubeIds)
+                {
+                    int x = id % _wight;
+                    int tmp = id / _wight;
+                    int y = tmp % _height;
+                    int z = tmp / _height;
+
+                    ComputeCubeToCache(x, y, z);
+                }
+                _dirtyCubeIds.Clear();
+            }
+
+            // 2) собрать итоговый mesh из кэша (дёшево)
+            ClearMeshData();
+            BuildMeshFromCache();
+
+            BuildMesh();
+
+            // 3) collider обновляем с дебаунсом (чтобы не убивать FPS)
+            ScheduleColliderUpdate();
+            yield return null;
+        }
+
+        _rebuildRoutine = null;
+    }
+
+    private void BuildMeshFromCache()
+    {
+        if (_cubeTriCache == null) return;
+
+        for (int x = 0; x < _wight; x++)
+            for (int y = 0; y < _height; y++)
+                for (int z = 0; z < _wight; z++)
+                {
+                    var triVerts = _cubeTriCache[CubeId(x, y, z)];
+                    int count = triVerts.Count;
+                    if (count == 0) continue;
+
+                    if (FlatShaded)
+                    {
+                        // каждый vert уникальный
+                        for (int i = 0; i < count; i++)
+                        {
+                            Vertices.Add(triVerts[i]);
+                            Triengls.Add(Vertices.Count - 1);
+                        }
+                    }
+                    else
+                    {
+                        // сварка вершин через dictionary
+                        for (int i = 0; i < count; i++)
+                        {
+                            Triengls.Add(VertForIndex(triVerts[i]));
+                        }
+                    }
+                }
+    }
+
     public void ClearMeshData()
     {
         Vertices.Clear();
         Triengls.Clear();
+        _vertToIndex.Clear();
     }
+
     public void BuildMesh()
     {
-        Mesh mesh = new Mesh();
-        mesh.vertices = Vertices.ToArray();
-        mesh.triangles = Triengls.ToArray();
-        mesh.RecalculateNormals();
-        _meshFilter.mesh = mesh;
+        _mesh.Clear();
+        _mesh.SetVertices(Vertices);
+        _mesh.SetTriangles(Triengls, 0);
+        _mesh.RecalculateNormals();
     }
-    
-    public void PlaseTerraine(Vector3 pos)
-    {
-        Vector3Int v3Int = new Vector3Int(Mathf.CeilToInt(pos.x), Mathf.CeilToInt(pos.y), Mathf.CeilToInt(pos.z));
-        _terraineMap[v3Int.x, v3Int.y, v3Int.z] = 0f;
-      
-        ClearMeshData();
-        CreateMeshData();
-        BuildMesh();
-        UpdateMeshCollider();
-    }
-    public void RemuveTerraine(Vector3 pos)
-    {
-        Vector3Int v3Int = new Vector3Int(Mathf.FloorToInt(pos.x), Mathf.FloorToInt(pos.y), Mathf.FloorToInt(pos.z));
-        _terraineMap[v3Int.x, v3Int.y, v3Int.z] = 1f;
 
-        ClearMeshData();
-        CreateMeshData();
-        BuildMesh();
+    private void ScheduleColliderUpdate()
+    {
+        if (_colliderRoutine != null)
+            StopCoroutine(_colliderRoutine);
+
+        _colliderRoutine = StartCoroutine(ColliderDebounceRoutine());
+    }
+
+    private IEnumerator ColliderDebounceRoutine()
+    {
+        yield return new WaitForSeconds(_colliderDebounce);
         UpdateMeshCollider();
+        _colliderRoutine = null;
+    }
+
+    private void UpdateMeshCollider()
+    {
+        if (_meshCollider == null)
+        {
+            _meshCollider = GetComponent<MeshCollider>();
+            if (_meshCollider == null) _meshCollider = gameObject.AddComponent<MeshCollider>();
+        }
+
+        _meshCollider.sharedMesh = null;
+        _meshCollider.sharedMesh = _mesh;
     }
 }
 
