@@ -20,7 +20,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <NoWarn>0169;USG0001</NoWarn>
-    <DefineConstants>UNITY_6000_0_61;UNITY_6000_0;UNITY_6000;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_2022_1_OR_NEWER;UNITY_2022_2_OR_NEWER;UNITY_2022_3_OR_NEWER;UNITY_2023_1_OR_NEWER;UNITY_2023_2_OR_NEWER;UNITY_2023_3_OR_NEWER;UNITY_6000_0_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_EDITOR_GAME_SERVICES;ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_GENERATE_NATIVE_PLUGINS_FOR_ASSEMBLIES_API;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_MARSHALLING_TESTS;ENABLE_VIDEO;ENABLE_NAVIGATION_OFFMESHLINK_TO_NAVMESHLINK;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;TEXTCORE_1_0_OR_NEWER;EDITOR_ONLY_NAVMESH_BUILDER_DEPRECATED;PLATFORM_STANDALONE_WIN;PLATFORM_STANDALONE;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_NVIDIA;ENABLE_AMD;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;GFXDEVICE_WAITFOREVENT_MESSAGEPUMP;PLATFORM_USES_EXPLICIT_MEMORY_MANAGER_INITIALIZER;PLATFORM_SUPPORTS_WAIT_FOR_PRESENTATION;PLATFORM_SUPPORTS_SPLIT_GRAPHICS_JOBS;ENABLE_MONO;NET_4_6;NET_UNITY_4_8;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_INPUT_SYSTEM;ENABLE_LEGACY_INPUT_MANAGER;TEXTCORE_FONT_ENGINE_1_5_OR_NEWER;TEXTCORE_TEXT_ENGINE_1_5_OR_NEWER;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER;UNITY_EDITOR_ONLY_COMPILATION</DefineConstants>
+    <DefineConstants>UNITY_6000_0_61;UNITY_6000_0;UNITY_6000;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_2022_1_OR_NEWER;UNITY_2022_2_OR_NEWER;UNITY_2022_3_OR_NEWER;UNITY_2023_1_OR_NEWER;UNITY_2023_2_OR_NEWER;UNITY_2023_3_OR_NEWER;UNITY_6000_0_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_EDITOR_GAME_SERVICES;ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_GENERATE_NATIVE_PLUGINS_FOR_ASSEMBLIES_API;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_MARSHALLING_TESTS;ENABLE_VIDEO;ENABLE_NAVIGATION_OFFMESHLINK_TO_NAVMESHLINK;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;TEXTCORE_1_0_OR_NEWER;EDITOR_ONLY_NAVMESH_BUILDER_DEPRECATED;PLATFORM_STANDALONE_WIN;PLATFORM_STANDALONE;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_NVIDIA;ENABLE_AMD;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;GFXDEVICE_WAITFOREVENT_MESSAGEPUMP;PLATFORM_USES_EXPLICIT_MEMORY_MANAGER_INITIALIZER;PLATFORM_SUPPORTS_WAIT_FOR_PRESENTATION;PLATFORM_SUPPORTS_SPLIT_GRAPHICS_JOBS;ENABLE_MONO;NET_4_6;NET_UNITY_4_8;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_INPUT_SYSTEM;ENABLE_LEGACY_INPUT_MANAGER;TEXTCORE_FONT_ENGINE_1_5_OR_NEWER;TEXTCORE_TEXT_ENGINE_1_5_OR_NEWER;UNITY_PHYSICS_CUSTOM;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER;UNITY_EDITOR_ONLY_COMPILATION</DefineConstants>
     <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -59,6 +59,61 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.0.61f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.0.61f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.0.61f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
+    <Analyzer Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.entities@42c4e852ffb4\Unity.Entities\SourceGenerators\AspectGenerator.dll" />
+    <Analyzer Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.entities@42c4e852ffb4\Unity.Entities\SourceGenerators\JobEntityGenerator.dll" />
+    <Analyzer Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.entities@42c4e852ffb4\Unity.Entities\SourceGenerators\SystemGenerator.dll" />
+    <Analyzer Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.entities@42c4e852ffb4\Unity.Entities\SourceGenerators\Unity.Entities.Analyzer.dll" />
+    <Analyzer Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.entities@42c4e852ffb4\Unity.Entities\SourceGenerators\SystemGenerator.LambdaJobs.dll" />
+    <Analyzer Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.entities@42c4e852ffb4\Unity.Entities\SourceGenerators\SystemGenerator.SystemAPI.QueryBuilder.dll" />
+    <Analyzer Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.entities@42c4e852ffb4\Unity.Entities\SourceGenerators\SystemGenerator.SystemAPI.dll" />
+    <Analyzer Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.entities@42c4e852ffb4\Unity.Entities\SourceGenerators\SystemGenerator.SystemAPI.Query.dll" />
+    <Analyzer Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.entities@42c4e852ffb4\Unity.Entities\SourceGenerators\SystemGenerator.Common.dll" />
+    <Analyzer Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.entities@42c4e852ffb4\Unity.Entities\SourceGenerators\Common.dll" />
+    <Analyzer Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.entities@42c4e852ffb4\Unity.Entities\SourceGenerators\SystemGenerator.EntityQueryBulkOperations.dll" />
+    <Analyzer Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.entities@42c4e852ffb4\Unity.Entities\SourceGenerators\Unity.Entities.Analyzer.CodeFixes.dll" />
+    <Analyzer Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.netcode@dcb5b1e763ea\Runtime\SourceGenerators\NetCodeSourceGenerator.dll" />
+    <Analyzer Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.netcode@dcb5b1e763ea\Runtime\SourceGenerators\NetCodeAnalyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <AdditionalFiles Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.netcode@dcb5b1e763ea\Runtime\SourceGenerators\Templates\DefaultTypes\GhostSnapshotValueFloatUnquantized.NetCodeSourceGenerator.additionalfile" />
+    <AdditionalFiles Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.netcode@dcb5b1e763ea\Runtime\SourceGenerators\Templates\DefaultTypes\GhostSnapshotValueUInt.NetCodeSourceGenerator.additionalfile" />
+    <AdditionalFiles Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.netcode@dcb5b1e763ea\Runtime\SourceGenerators\Templates\DefaultTypes\GhostSnapshotValueDoubleUnquantized.NetCodeSourceGenerator.additionalfile" />
+    <AdditionalFiles Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.netcode@dcb5b1e763ea\Runtime\SourceGenerators\Templates\DefaultTypes\GhostSnapshotValueBool.NetCodeSourceGenerator.additionalfile" />
+    <AdditionalFiles Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.netcode@dcb5b1e763ea\Runtime\SourceGenerators\Templates\DefaultTypes\GhostSnapshotValueFloat2.NetCodeSourceGenerator.additionalfile" />
+    <AdditionalFiles Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.netcode@dcb5b1e763ea\Runtime\SourceGenerators\Templates\DefaultTypes\GhostSnapshotValueUShort.NetCodeSourceGenerator.additionalfile" />
+    <AdditionalFiles Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.netcode@dcb5b1e763ea\Runtime\SourceGenerators\Templates\DefaultTypes\GhostSnapshotValueFloat4Unquantized.NetCodeSourceGenerator.additionalfile" />
+    <AdditionalFiles Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.netcode@dcb5b1e763ea\Runtime\SourceGenerators\Templates\FixedList\GhostFixedListCommandHelper.NetCodeSourceGenerator.additionalfile" />
+    <AdditionalFiles Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.netcode@dcb5b1e763ea\Runtime\SourceGenerators\Templates\DefaultTypes\GhostSnapshotValueQuaternion.NetCodeSourceGenerator.additionalfile" />
+    <AdditionalFiles Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.netcode@dcb5b1e763ea\Runtime\SourceGenerators\Templates\DefaultTypes\GhostSnapshotValueFloat3.NetCodeSourceGenerator.additionalfile" />
+    <AdditionalFiles Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.netcode@dcb5b1e763ea\Runtime\SourceGenerators\Templates\DefaultTypes\GhostSnapshotValueFloat3Unquantized.NetCodeSourceGenerator.additionalfile" />
+    <AdditionalFiles Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.netcode@dcb5b1e763ea\Runtime\SourceGenerators\Templates\DefaultTypes\GhostSnapshotValueEntity.NetCodeSourceGenerator.additionalfile" />
+    <AdditionalFiles Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.netcode@dcb5b1e763ea\Runtime\SourceGenerators\Templates\DefaultTypes\GhostSnapshotValueFloat2Unquantized.NetCodeSourceGenerator.additionalfile" />
+    <AdditionalFiles Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.netcode@dcb5b1e763ea\Runtime\SourceGenerators\Templates\InputSynchronization.NetCodeSourceGenerator.additionalfile" />
+    <AdditionalFiles Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.netcode@dcb5b1e763ea\Runtime\SourceGenerators\Templates\FixedList\GhostFixedListContainer.NetCodeSourceGenerator.additionalfile" />
+    <AdditionalFiles Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.netcode@dcb5b1e763ea\Runtime\SourceGenerators\Templates\DefaultTypes\GhostSnapshotValueFixedString64Bytes.NetCodeSourceGenerator.additionalfile" />
+    <AdditionalFiles Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.netcode@dcb5b1e763ea\Runtime\SourceGenerators\Templates\DefaultTypes\GhostSnapshotValueFixedString4096Bytes.NetCodeSourceGenerator.additionalfile" />
+    <AdditionalFiles Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.netcode@dcb5b1e763ea\Runtime\SourceGenerators\Templates\DefaultTypes\GhostSnapshotValueSByte.NetCodeSourceGenerator.additionalfile" />
+    <AdditionalFiles Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.netcode@dcb5b1e763ea\Runtime\SourceGenerators\Templates\DefaultTypes\GhostSnapshotValueDouble.NetCodeSourceGenerator.additionalfile" />
+    <AdditionalFiles Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.netcode@dcb5b1e763ea\Runtime\SourceGenerators\Templates\DefaultTypes\GhostSnapshotValueFixedString32Bytes.NetCodeSourceGenerator.additionalfile" />
+    <AdditionalFiles Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.netcode@dcb5b1e763ea\Runtime\SourceGenerators\Templates\FixedList\GhostFixedListElement.NetCodeSourceGenerator.additionalfile" />
+    <AdditionalFiles Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.netcode@dcb5b1e763ea\Runtime\SourceGenerators\Templates\FixedList\GhostFixedListSnapshotHelpers.NetCodeSourceGenerator.additionalfile" />
+    <AdditionalFiles Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.netcode@dcb5b1e763ea\Runtime\SourceGenerators\Templates\DefaultTypes\GhostSnapshotValueFixedString512Bytes.NetCodeSourceGenerator.additionalfile" />
+    <AdditionalFiles Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.netcode@dcb5b1e763ea\Runtime\SourceGenerators\Templates\FixedList\GhostSnapshotFixedList.NetCodeSourceGenerator.additionalfile" />
+    <AdditionalFiles Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.netcode@dcb5b1e763ea\Runtime\SourceGenerators\Templates\CommandDataSerializer.NetCodeSourceGenerator.additionalfile" />
+    <AdditionalFiles Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.netcode@dcb5b1e763ea\Runtime\SourceGenerators\Templates\GhostComponentSerializer.NetCodeSourceGenerator.additionalfile" />
+    <AdditionalFiles Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.netcode@dcb5b1e763ea\Runtime\SourceGenerators\Templates\DefaultTypes\GhostSnapshotValueULong.NetCodeSourceGenerator.additionalfile" />
+    <AdditionalFiles Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.netcode@dcb5b1e763ea\Runtime\SourceGenerators\Templates\DefaultTypes\GhostSnapshotValueNetworkEndpoint.NetCodeSourceGenerator.additionalfile" />
+    <AdditionalFiles Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.netcode@dcb5b1e763ea\Runtime\SourceGenerators\Templates\DefaultTypes\GhostSnapshotValueShort.NetCodeSourceGenerator.additionalfile" />
+    <AdditionalFiles Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.netcode@dcb5b1e763ea\Runtime\SourceGenerators\Templates\GhostComponentSerializerRegistrationSystem.NetCodeSourceGenerator.additionalfile" />
+    <AdditionalFiles Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.netcode@dcb5b1e763ea\Runtime\SourceGenerators\Templates\DefaultTypes\GhostSnapshotValueByte.NetCodeSourceGenerator.additionalfile" />
+    <AdditionalFiles Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.netcode@dcb5b1e763ea\Runtime\SourceGenerators\Templates\DefaultTypes\GhostSnapshotValueLong.NetCodeSourceGenerator.additionalfile" />
+    <AdditionalFiles Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.netcode@dcb5b1e763ea\Runtime\SourceGenerators\Templates\DefaultTypes\GhostSnapshotValueQuaternionUnquantized.NetCodeSourceGenerator.additionalfile" />
+    <AdditionalFiles Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.netcode@dcb5b1e763ea\Runtime\SourceGenerators\Templates\DefaultTypes\GhostSnapshotValueInt.NetCodeSourceGenerator.additionalfile" />
+    <AdditionalFiles Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.netcode@dcb5b1e763ea\Runtime\SourceGenerators\Templates\RpcCommandSerializer.NetCodeSourceGenerator.additionalfile" />
+    <AdditionalFiles Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.netcode@dcb5b1e763ea\Runtime\SourceGenerators\Templates\DefaultTypes\GhostSnapshotValueFixedString128Bytes.NetCodeSourceGenerator.additionalfile" />
+    <AdditionalFiles Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.netcode@dcb5b1e763ea\Runtime\SourceGenerators\Templates\DefaultTypes\GhostSnapshotValueFloat.NetCodeSourceGenerator.additionalfile" />
+    <AdditionalFiles Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.netcode@dcb5b1e763ea\Runtime\SourceGenerators\Templates\DefaultTypes\GhostSnapshotValueNetworkTick.NetCodeSourceGenerator.additionalfile" />
+    <AdditionalFiles Include="C:\Game_Unity\Den_NIkita_Game\Den-Nikita-Game\Den_Nikita_TestGame\Library\PackageCache\com.unity.netcode@dcb5b1e763ea\Runtime\SourceGenerators\Templates\DefaultTypes\GhostSnapshotValueFloat4.NetCodeSourceGenerator.additionalfile" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Asseds.Grafic.Terraine\AssedsForProgect\TutorialInfo\Scripts\Editor\ReadmeEditor.cs" />
@@ -557,7 +612,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Collections.LowLevel.ILSupport">
-      <HintPath>Library\PackageCache\com.unity.collections@aea9d3bd5e19\Unity.Collections.LowLevel.ILSupport\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
+      <HintPath>Library\PackageCache\com.unity.collections@010f14fa5e2c\Unity.Collections.LowLevel.ILSupport\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="nunit.framework">
@@ -593,7 +648,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="System.IO.Hashing">
-      <HintPath>Library\PackageCache\com.unity.collections@aea9d3bd5e19\Unity.Collections.Tests\System.IO.Hashing\System.IO.Hashing.dll</HintPath>
+      <HintPath>Library\PackageCache\com.unity.collections@010f14fa5e2c\Unity.Collections.Tests\System.IO.Hashing\System.IO.Hashing.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
@@ -613,11 +668,15 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe">
-      <HintPath>Library\PackageCache\com.unity.collections@aea9d3bd5e19\Unity.Collections.Tests\System.Runtime.CompilerServices.Unsafe\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <HintPath>Library\PackageCache\com.unity.collections@010f14fa5e2c\Unity.Collections.Tests\System.Runtime.CompilerServices.Unsafe\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
       <HintPath>Library\PackageCache\com.unity.analytics@6cc66d58ac08\AnalyticsStandardEvents\Unity.Analytics.StandardEvents.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Cecil.Awesome">
+      <HintPath>Library\PackageCache\com.unity.entities@42c4e852ffb4\Unity.Entities.CodeGen\Unity.Cecil.Awesome.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="mscorlib">
@@ -1128,6 +1187,14 @@
       <HintPath>Library\ScriptAssemblies\UnityEditor.TestRunner.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.Entities.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Entities.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Physics.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Physics.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.AI.Navigation">
       <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.dll</HintPath>
       <Private>False</Private>
@@ -1136,8 +1203,16 @@
       <HintPath>Library\ScriptAssemblies\Unity.AdaptivePerformance.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.Networking.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Networking.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.Cinemachine.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Cinemachine.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Numerics.Linear">
+      <HintPath>Library\ScriptAssemblies\Unity.Numerics.Linear.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Notifications.Unified">
@@ -1154,6 +1229,10 @@
     </Reference>
     <Reference Include="Unity.Timeline">
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.NetCode.Authoring.Hybrid">
+      <HintPath>Library\ScriptAssemblies\Unity.NetCode.Authoring.Hybrid.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Notifications.Android">
@@ -1192,8 +1271,16 @@
       <HintPath>Library\ScriptAssemblies\Unity.AdaptivePerformance.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.NetCode">
+      <HintPath>Library\ScriptAssemblies\Unity.NetCode.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="PPv2URPConverters">
       <HintPath>Library\ScriptAssemblies\PPv2URPConverters.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Serialization">
+      <HintPath>Library\ScriptAssemblies\Unity.Serialization.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.VisualScripting.Core">
@@ -1220,8 +1307,16 @@
       <HintPath>Library\ScriptAssemblies\UnityEngine.Purchasing.SecurityStub.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.Serialization.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Serialization.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.Collections.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Collections.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Physics.Hybrid">
+      <HintPath>Library\ScriptAssemblies\Unity.Physics.Hybrid.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Profiling.Core">
@@ -1248,12 +1343,24 @@
       <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Updater.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.Mathematics.Extensions">
+      <HintPath>Library\ScriptAssemblies\Unity.Mathematics.Extensions.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.Notifications">
       <HintPath>Library\ScriptAssemblies\Unity.Notifications.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.Purchasing.SecurityCore">
       <HintPath>Library\ScriptAssemblies\UnityEngine.Purchasing.SecurityCore.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Numerics.Memory">
+      <HintPath>Library\ScriptAssemblies\Unity.Numerics.Memory.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Entities.Build">
+      <HintPath>Library\ScriptAssemblies\Unity.Entities.Build.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
@@ -1272,8 +1379,16 @@
       <HintPath>Library\ScriptAssemblies\Unity.Settings.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.Deformations">
+      <HintPath>Library\ScriptAssemblies\Unity.Deformations.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Runtime">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.NetCode.Physics.Hybrid">
+      <HintPath>Library\ScriptAssemblies\Unity.NetCode.Physics.Hybrid.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.AdaptivePerformance.UI.Editor">
@@ -1292,12 +1407,32 @@
       <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Editor.ConversionSystem.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.Mathematics.Extensions.Hybrid">
+      <HintPath>Library\ScriptAssemblies\Unity.Mathematics.Extensions.Hybrid.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Numerics.Random">
+      <HintPath>Library\ScriptAssemblies\Unity.Numerics.Random.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Scenes.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Scenes.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Entities.Editor.Properties">
+      <HintPath>Library\ScriptAssemblies\Unity.Entities.Editor.Properties.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Runtime">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.VisualScripting.Flow">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Numerics.Linear.Sparse">
+      <HintPath>Library\ScriptAssemblies\Unity.Numerics.Linear.Sparse.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.SpatialTracking">
@@ -1310,6 +1445,10 @@
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.2D.Runtime">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.2D.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Numerics.Linear.Solvers.Lowlevel">
+      <HintPath>Library\ScriptAssemblies\Unity.Numerics.Linear.Solvers.Lowlevel.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.Advertisements.Editor">
@@ -1336,6 +1475,10 @@
       <HintPath>Library\ScriptAssemblies\UnityEngine.Purchasing.Codeless.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.Transforms.Hybrid">
+      <HintPath>Library\ScriptAssemblies\Unity.Transforms.Hybrid.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="UnityEngine.Purchasing">
       <HintPath>Library\ScriptAssemblies\UnityEngine.Purchasing.dll</HintPath>
       <Private>False</Private>
@@ -1354,6 +1497,10 @@
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
       <HintPath>Library\ScriptAssemblies\Unity.Analytics.DataPrivacy.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.NetCode.Editor.Drawers">
+      <HintPath>Library\ScriptAssemblies\Unity.NetCode.Editor.Drawers.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Runtime.Shared">
@@ -1376,6 +1523,10 @@
       <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.Entities.UI.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Entities.UI.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="UnityEditor.Purchasing">
       <HintPath>Library\ScriptAssemblies\UnityEditor.Purchasing.dll</HintPath>
       <Private>False</Private>
@@ -1386,6 +1537,10 @@
     </Reference>
     <Reference Include="Unity.Splines">
       <HintPath>Library\ScriptAssemblies\Unity.Splines.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.ScriptableBuildPipeline.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.ScriptableBuildPipeline.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Mathematics.Editor">
@@ -1400,6 +1555,10 @@
       <HintPath>Library\ScriptAssemblies\UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.ScriptableBuildPipeline">
+      <HintPath>Library\ScriptAssemblies\Unity.ScriptableBuildPipeline.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.Collections">
       <HintPath>Library\ScriptAssemblies\Unity.Collections.dll</HintPath>
       <Private>False</Private>
@@ -1408,8 +1567,16 @@
       <HintPath>Library\ScriptAssemblies\Unity.Rendering.LightTransport.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.Physics">
+      <HintPath>Library\ScriptAssemblies\Unity.Physics.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="UnityEngine.XR.LegacyInputHelpers">
       <HintPath>Library\ScriptAssemblies\UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Entities.Hybrid">
+      <HintPath>Library\ScriptAssemblies\Unity.Entities.Hybrid.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Multiplayer.Center.Common">
@@ -1420,8 +1587,16 @@
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.Transforms">
+      <HintPath>Library\ScriptAssemblies\Unity.Transforms.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.AdaptivePerformance.Simulator.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.AdaptivePerformance.Simulator.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.NetCode.Physics">
+      <HintPath>Library\ScriptAssemblies\Unity.NetCode.Physics.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.VisualScripting.State.Editor">
@@ -1436,12 +1611,28 @@
       <HintPath>Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.Networking.Transport">
+      <HintPath>Library\ScriptAssemblies\Unity.Networking.Transport.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.Scenes">
+      <HintPath>Library\ScriptAssemblies\Unity.Scenes.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.NetCode.Hybrid">
+      <HintPath>Library\ScriptAssemblies\Unity.NetCode.Hybrid.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Analytics">
       <HintPath>Library\ScriptAssemblies\Analytics.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.NetCode.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.NetCode.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Services.Core.Environments">
@@ -1460,6 +1651,10 @@
       <HintPath>Library\ScriptAssemblies\UnityEngine.Purchasing.Stores.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.Entities.Hybrid.HybridComponents">
+      <HintPath>Library\ScriptAssemblies\Unity.Entities.Hybrid.HybridComponents.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.Services.Core">
       <HintPath>Library\ScriptAssemblies\Unity.Services.Core.dll</HintPath>
       <Private>False</Private>
@@ -1472,8 +1667,20 @@
       <HintPath>Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.Entities.UI">
+      <HintPath>Library\ScriptAssemblies\Unity.Entities.UI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Entities">
+      <HintPath>Library\ScriptAssemblies\Unity.Entities.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.Rendering.LightTransport.Runtime">
       <HintPath>Library\ScriptAssemblies\Unity.Rendering.LightTransport.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Numerics.Linear.Dense">
+      <HintPath>Library\ScriptAssemblies\Unity.Numerics.Linear.Dense.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.InputSystem">
@@ -1485,6 +1692,14 @@
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{123E6666-E771-8F71-BC3B-9B015ADB49D0}</Project>
       <Name>Assembly-CSharp</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Physics.Custom.Editor.csproj">
+      <Project>{E93C8214-827D-DB82-ABED-41431343A5D1}</Project>
+      <Name>Unity.Physics.Custom.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Physics.Custom.csproj">
+      <Project>{0C834456-FCBE-8505-519A-E4E8E48C0BA8}</Project>
+      <Name>Unity.Physics.Custom</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
