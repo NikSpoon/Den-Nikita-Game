@@ -1,89 +1,63 @@
-using Unity.Burst;
-using Unity.Collections;
-using Unity.Entities;
+﻿using Unity.Entities;
 using Unity.Mathematics;
+using Unity.Collections;
+using UnityEngine;
 
-[WorldSystemFilter(WorldSystemFilterFlags.Default | WorldSystemFilterFlags.Editor)]
-[UpdateInGroup(typeof(InitializationSystemGroup))]
-[BurstCompile]
-public partial struct MarchingTablesBootstrapSystem : ISystem
+public class MarchingCubesTablesAuthoring : MonoBehaviour
 {
-    public void OnCreate(ref SystemState state)
+
+    public class MarchingCubesTablesBaker : Baker<MarchingCubesTablesAuthoring>
     {
-        // ????? ??????? ?????????? 1 ???
-        state.RequireForUpdate<MarchingTablesBootstrapTag>();
-    }
-
-    public void OnUpdate(ref SystemState state)
-    {
-        // ??? ???? ??????? � ??????? ? ???????????
-        if (SystemAPI.HasSingleton<MarchingTablesRef>())
+        public override void Bake(MarchingCubesTablesAuthoring authoring)
         {
-            state.Enabled = false;
-            return;
-        }
+            var entity = GetEntity(TransformUsageFlags.None);
 
-        using var builder = new BlobBuilder(Allocator.Temp);
-        ref var root = ref builder.ConstructRoot<MarchingTablesBlob>();
+            using var builder = new BlobBuilder(Allocator.Temp);
+            ref var root = ref builder.ConstructRoot<MarchingCubesTablesBlob>();
 
-        // ---- corners (8)
-        var corners = builder.Allocate(ref root.CornerTable, 8);
-        corners[0] = new int3(0, 0, 0);
-        corners[1] = new int3(1, 0, 0);
-        corners[2] = new int3(1, 1, 0);
-        corners[3] = new int3(0, 1, 0);
-        corners[4] = new int3(0, 0, 1);
-        corners[5] = new int3(1, 0, 1);
-        corners[6] = new int3(1, 1, 1);
-        corners[7] = new int3(0, 1, 1);
+            // CornerTable
+            var corners = builder.Allocate(ref root.CornerTable, 8);
+            corners[0] = new int3(0, 0, 0);
+            corners[1] = new int3(1, 0, 0);
+            corners[2] = new int3(1, 1, 0);
+            corners[3] = new int3(0, 1, 0);
+            corners[4] = new int3(0, 0, 1);
+            corners[5] = new int3(1, 0, 1);
+            corners[6] = new int3(1, 1, 1);
+            corners[7] = new int3(0, 1, 1);
 
-        // ---- edges (12)
-        var edges = builder.Allocate(ref root.EdgeCornerIndex, 12);
-        edges[0]  = new int2(0, 1);
-        edges[1]  = new int2(1, 2);
-        edges[2]  = new int2(3, 2);
-        edges[3]  = new int2(0, 3);
-        edges[4]  = new int2(4, 5);
-        edges[5]  = new int2(5, 6);
-        edges[6]  = new int2(7, 6);
-        edges[7]  = new int2(4, 7);
-        edges[8]  = new int2(0, 4);
-        edges[9]  = new int2(1, 5);
-        edges[10] = new int2(2, 6);
-        edges[11] = new int2(3, 7);
-
-        // TriTable: 256*16
-        var tri = builder.Allocate(ref root.TriTable, 256 * 16);
-
-        var src = MarchingCubesTriangleTable.Data;
-
-        // ???????? managed int[,] -> BlobArray<sbyte>
-        for (int cfg = 0; cfg < 256; cfg++)
-        {
-            int baseIndex = cfg * 16;
-            for (int i = 0; i < 16; i++)
+            // EdgeIndexesFlat
+            var edges = builder.Allocate(ref root.EdgeIndexesFlat, 12 * 2);
+            int[] edgeFlat =
             {
-                tri[baseIndex + i] = (sbyte)src[cfg, i]; // -1..11 ????????? ???????
+            0,1,  1,2,  3,2,  0,3,
+            4,5,  5,6,  7,6,  4,7,
+            0,4,  1,5,  2,6,  3,7
+        };
+            for (int i = 0; i < edgeFlat.Length; i++)
+                edges[i] = edgeFlat[i];
+
+            // TriangleTableFlat: 256*16
+            var tris = builder.Allocate(ref root.TriangleTableFlat, 256 * 16);
+
+            // Копируем твою 2D таблицу в плоский BlobArray
+            // ВНИМАНИЕ: TriangleTable2D должен быть [256,16]
+            for (int caseIndex = 0; caseIndex < 256; caseIndex++)
+            {
+                int baseIndex = caseIndex * 16;
+                for (int i = 0; i < 16; i++)
+                {
+                    tris[baseIndex + i] = TriangleTable2D[caseIndex, i];
+                }
             }
+
+            var blobRef = builder.CreateBlobAssetReference<MarchingCubesTablesBlob>(Allocator.Persistent);
+            AddComponent(entity, new MarchingCubesTablesRef { Blob = blobRef });
         }
 
-        var blobRef = builder.CreateBlobAssetReference<MarchingTablesBlob>(Allocator.Persistent);
-
-        // ??????? singleton-entity ? ??????? ?? blob
-        var e = state.EntityManager.CreateEntity();
-        state.EntityManager.AddComponentData(e, new MarchingTablesRef { Value = blobRef });
-
-        state.Enabled = false;
-    }
-}
-
-public struct MarchingTablesBootstrapTag : IComponentData {}
-
-public static class MarchingCubesTriangleTable
-{
-    // ?????? ???? ?????? ??????? 256x16 (??? ? ???? ? MonoBehaviour)
-    public static readonly int[,] Data = new int[256, 16]
-    {
+        // ✅ Сюда просто вставляешь твою оригинальную таблицу как есть (из Mono)
+        // Она может быть огромной — но она 1 раз хранится в коде.
+        private static readonly int[,] TriangleTable2D = new int[256, 16]  {
         {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
         {0, 8, 3, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
         {0, 1, 9, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
@@ -340,5 +314,6 @@ public static class MarchingCubesTriangleTable
         {0, 9, 1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
         {0, 3, 8, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
         {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}
-    };
-};
+        };
+    }
+}
