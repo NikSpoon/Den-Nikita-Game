@@ -183,7 +183,6 @@ GameObject:
   - component: {fileID: 753141470}
   - component: {fileID: 753141472}
   - component: {fileID: 753141471}
-  - component: {fileID: 753141473}
   - component: {fileID: 753141474}
   m_Layer: 0
   m_Name: MapMono
@@ -260,19 +259,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 753141467}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &753141473
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 753141467}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d27a5bff832303f4b9924abb109d0cb3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boxPrefab: {fileID: 319702750038664159, guid: 0a3050d901060394885d5117bdc6e81b, type: 3}
 --- !u!114 &753141474
 MonoBehaviour:
   m_ObjectHideFlags: 0

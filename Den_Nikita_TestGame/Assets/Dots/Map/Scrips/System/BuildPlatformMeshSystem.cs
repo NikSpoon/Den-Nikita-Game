@@ -63,12 +63,12 @@ public partial class BuildPlatformMeshSystem : SystemBase
         // ============================================================
 
         // --- Параметры террейна (поверхность) ---
-        float baseY = 25f;         // средняя высота поверхности
-        float amplitude = 14f;     // высота гор
-        float frequency = 0.045f;  // частота шума
+        float baseY = -1f;          // <<< важно (после mapOffset.y)
+        float amplitude = 1.0f;    // мелкий рельеф
+        float frequency = 0.16f;   // размер неровностей
 
         // --- Толщина (глубина) земли вниз от поверхности ---
-        float groundDepth = 70f;   // если Height=100, это норм
+        float groundDepth = 8f;    // тонкий слой земли (плоскость, не огромный куб)
 
         float SurfaceHeight(float x, float z)
         {
@@ -90,14 +90,14 @@ public partial class BuildPlatformMeshSystem : SystemBase
         }
 
         // --- Параметры шумовых пещер (3D noise) ---
-        float caveFreq = 0.09f;       // чем меньше — тем крупнее пещеры
-        float caveCut = 0.35f;        // больше => пещер меньше
+        float caveFreq = 0.49f;       // чем меньше — тем крупнее пещеры
+        float caveCut = 0.25f;        // больше => пещер меньше
         float caveStrength = 12f;     // насколько сильно "вырезает"
 
         // Пещеры только в "диапазоне высот" (рандомность по высоте получится из шума + диапазона)
         float caveBandMinY = 10f;
-        float caveBandMaxY = 70f;
-        float caveBandFade = 8f;      // мягкие границы
+        float caveBandMaxY = 50f;
+        float caveBandFade = 18f;      // мягкие границы
 
         float CaveBandMask(float y)
         {
@@ -204,7 +204,6 @@ public partial class BuildPlatformMeshSystem : SystemBase
 
             return best;
         }
-
         // Итоговая плотность:
         // - ground: положительно внутри "земли"
         // - caves fields: отрицательно внутри пустот
@@ -240,6 +239,11 @@ public partial class BuildPlatformMeshSystem : SystemBase
         var dCell = new float[8];
         var edgeDone = new bool[12];
         var edgeV = new float3[12];
+        float3 mapOffset = new float3(
+                          (s.Width - 1) * s.CellSize * 0.5f,
+                          ((s.Height - 1) * s.CellSize * 0.5f),
+                          (s.Depth - 1) * s.CellSize * 0.5f
+                          );
 
         for (int x = 0; x < s.Width - 1; x++)
             for (int y = 0; y < s.Height - 1; y++)
@@ -248,7 +252,8 @@ public partial class BuildPlatformMeshSystem : SystemBase
                     for (int c = 0; c < 8; c++)
                     {
                         int3 corner = tables.Value.CornerTable[c];
-                        float3 wp = new float3(x + corner.x, y + corner.y, z + corner.z) * s.CellSize;
+
+                        float3 wp = new float3(x + corner.x, y + corner.y, z + corner.z) * s.CellSize - mapOffset;
                         pCell[c] = wp;
                         dCell[c] = Density(wp);
                     }
