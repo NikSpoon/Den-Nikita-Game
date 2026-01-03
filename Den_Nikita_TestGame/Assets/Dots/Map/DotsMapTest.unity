@@ -184,13 +184,14 @@ GameObject:
   - component: {fileID: 753141472}
   - component: {fileID: 753141471}
   - component: {fileID: 753141473}
+  - component: {fileID: 753141474}
   m_Layer: 0
   m_Name: MapMono
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &753141470
 Transform:
   m_ObjectHideFlags: 0
@@ -266,12 +267,24 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 753141467}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d27a5bff832303f4b9924abb109d0cb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   boxPrefab: {fileID: 319702750038664159, guid: 0a3050d901060394885d5117bdc6e81b, type: 3}
+--- !u!114 &753141474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753141467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d50bfb38f36c784d8ad2f8f021da29f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &974121145
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,7 +493,7 @@ Transform:
   m_GameObject: {fileID: 1810198615}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 1.72, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

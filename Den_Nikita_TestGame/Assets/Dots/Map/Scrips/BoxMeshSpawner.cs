@@ -38,7 +38,7 @@ public class BoxMeshSpawner : MonoBehaviour
             Vector3 position = ltw.Position;
 
             // Инстанцируем префаб на позиции
-            Instantiate(boxPrefab, position, Quaternion.identity);
+            Instantiate(boxPrefab, position, Quaternion.identity,gameObject.transform);
         }
 
         // Освобождаем массив

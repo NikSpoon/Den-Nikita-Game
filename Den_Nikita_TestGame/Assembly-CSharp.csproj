@@ -142,6 +142,7 @@
     <Compile Include="Assets\Dots\Map\Scrips\BoxMeshSpawner.cs" />
     <Compile Include="Assets\Scripts\Fsm\UIApp\UIApp.cs" />
     <Compile Include="Assets\Dots\StartDotsLogic\CubeAuthoring.cs" />
+    <Compile Include="Assets\Dots\Map\Scrips\Data\TerrainMeshTag.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraLoocerController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
     <Compile Include="Assets\Scripts\NonMomobeh\Database.cs" />
@@ -175,6 +176,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
+    <Compile Include="Assets\Dots\Map\Scrips\EcsTerrainMeshRenderer.cs" />
     <Compile Include="Assets\Scripts\Player\HeroSystem\BaseHeroSpel.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
@@ -197,6 +199,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
     <Compile Include="Assets\Dots\StartDotsLogic\CubeInputAuthoring.cs" />
+    <Compile Include="Assets\Dots\Map\Scrips\System\BuildPlatformMeshSystem.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />

@@ -39,7 +39,7 @@ public partial class GenerateTerrainSystem : SystemBase
                 BevelRadius = 0f
             };
 
-            var collider = BoxCollider.Create(boxGeo, filter);
+          //  var collider = BoxCollider.Create(boxGeo, filter);
 
             for (int x = 0; x < settings.Width; x++)
                 for (int y = 0; y < settings.Height; y++)
@@ -49,7 +49,7 @@ public partial class GenerateTerrainSystem : SystemBase
                         var e = ecb.CreateEntity();
 
                         ecb.AddComponent(e, LocalTransform.FromPosition(pos));
-                        ecb.AddComponent(e, new PhysicsCollider { Value = collider });
+                       // ecb.AddComponent(e, new PhysicsCollider { Value = collider });
 
                         // ВАЖНО: чтобы физика вообще включила entity в сборку мира
                         ecb.AddComponent<Simulate>(e);
