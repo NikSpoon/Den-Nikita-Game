@@ -2,7 +2,7 @@ using Unity.Entities;
 using Unity.Mathematics;
 
 public struct TerrainMeshTag : IComponentData { }
-
+/*
 public struct MeshDirty : IComponentData
 {
     public byte Value; // 0/1
@@ -31,3 +31,4 @@ public struct MarchingCubesSettings : IComponentData
     public float IsoLevel;
     public float CellSize;
 }
+*/

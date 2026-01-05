@@ -10,6 +10,7 @@ using UnityEngine;
 [UpdateBefore(typeof(PhysicsSystemGroup))]
 public partial class BuildPlatformMeshSystem : SystemBase
 {
+    /*
     protected override void OnCreate()
     {
         RequireForUpdate<MarchingCubesSettings>();
@@ -61,7 +62,7 @@ public partial class BuildPlatformMeshSystem : SystemBase
         // ============================================================
         // 2) ПОЛЕ ПЛОТНОСТИ: земля (толстая) + пещеры (много) + входы
         // ============================================================
-
+       
         // --- Параметры террейна (поверхность) ---
         float baseY = -1f;          // <<< важно (после mapOffset.y)
         float amplitude = 1.0f;    // мелкий рельеф
@@ -230,7 +231,7 @@ public partial class BuildPlatformMeshSystem : SystemBase
             float t = (iso - dA) / denom;
             return pA + t * (pB - pA);
         }
-
+        
         // ============================================================
         // 3) Marching Cubes
         // ============================================================
@@ -359,4 +360,8 @@ public partial class BuildPlatformMeshSystem : SystemBase
             Debug.LogWarning("MC: mesh is empty => collider not created");
         }
     }
+*/
+    protected override void OnUpdate()
+    { }
+
 }

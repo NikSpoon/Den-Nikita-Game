@@ -184,6 +184,7 @@ GameObject:
   - component: {fileID: 753141472}
   - component: {fileID: 753141471}
   - component: {fileID: 753141474}
+  - component: {fileID: 753141475}
   m_Layer: 0
   m_Name: MapMono
   m_TagString: Untagged
@@ -266,11 +267,25 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 753141467}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3d50bfb38f36c784d8ad2f8f021da29f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &753141475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753141467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34f7169bdf52019428ab03e06e20b055, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefaultMaterial: {fileID: -7974662883447924875, guid: 0113190870211a845b903cee8a9a65d2, type: 3}
+  DefaultTexture: {fileID: 2800000, guid: 99bc7ce58799ae846aaf77c126b96869, type: 3}
 --- !u!1 &974121145
 GameObject:
   m_ObjectHideFlags: 0

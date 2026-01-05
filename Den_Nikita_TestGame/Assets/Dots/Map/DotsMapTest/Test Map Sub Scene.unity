@@ -137,7 +137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &328376447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -348,7 +348,7 @@ Transform:
   m_GameObject: {fileID: 328376446}
   serializedVersion: 2
   m_LocalRotation: {x: 0.99999195, y: -0, z: -0, w: -0.004014143}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalPosition: {x: 0, y: -0.96, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -411,6 +411,7 @@ GameObject:
   - component: {fileID: 1159474967}
   - component: {fileID: 1159474970}
   - component: {fileID: 1159474971}
+  - component: {fileID: 1159474972}
   m_Layer: 0
   m_Name: Map
   m_TagString: Untagged
@@ -445,8 +446,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb54ea4f67dc17342bcd49954c53502d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DrawColliders: 0
-  DrawColliderEdges: 0
+  DrawColliders: 1
+  DrawColliderEdges: 1
   DrawColliderAabbs: 1
   DrawMassProperties: 1
   DrawBroadphase: 1
@@ -484,6 +485,39 @@ MonoBehaviour:
   _width: 32
   _height: 50
   _depth: 32
+--- !u!114 &1159474972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159474965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f9e28938dbec5644b9a721f27d18edf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Voxels:
+    x: 16
+    y: 16
+    z: 16
+  CellSize: 1
+  IsoLevel: 0
+  RadiusXZ: 3
+  UndergroundY: 4
+  SkyY: 2
+  MaxSpawnPerFrame: 16
+  MaxTerraformPerFrame: 2
+  MaxMeshPerFrame: 2
+  MaxPhysicsPerFrame: 1
+  WorldSeed: 12345
+  HeightAmplitude: 12
+  HeightFrequency: 0.01
+  BaseGroundY: 0
+  CaveFrequency: 0.05
+  CaveThreshold: 0.55
+  CaveStrength: 1
+  InvertWinding: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -14,13 +14,8 @@ public class TerrainAuthoring : MonoBehaviour
         public override void Bake(TerrainAuthoring authoring)
         {
             var entity = GetEntity(TransformUsageFlags.Dynamic);
-            AddComponent(entity , new TerrainSettingsComponent
-            {
-                Width = authoring._width,
-                Height = authoring._height,
-                Depth = authoring._depth
-            });
-
+        
+/*
             AddComponent(entity, new MarchingCubesSettings
             {
                 Width = authoring._width,
@@ -29,7 +24,7 @@ public class TerrainAuthoring : MonoBehaviour
                 IsoLevel = 0f,
                 CellSize = 1f
             });
-
+*/
         }
     }
 }
